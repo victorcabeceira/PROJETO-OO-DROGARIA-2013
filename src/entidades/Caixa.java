@@ -8,7 +8,7 @@ public class Caixa extends Pessoa{
 	private int tipo; // 0-Receita ou 1-Despesa
 	private float valor;
 	private String data;
-	private String descricao; // Informacaoes
+	private String descricao; // Informacoes
 								// salario
 
 	protected Cliente[] clientes;
@@ -25,6 +25,7 @@ public class Caixa extends Pessoa{
 	public Caixa(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa,
 			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa,
 			int tipoTransacao, float valorTransacao, String dataTransacao, String descricaoTransacao){
+		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
 		if (tipo == 0 || tipo == 1) {
 			this.tipo = tipoTransacao;
 			this.valor = valorTransacao;
