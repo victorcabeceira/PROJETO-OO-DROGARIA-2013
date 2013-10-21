@@ -14,7 +14,7 @@ public class Balconista extends Pessoa{
 	protected Medicamento[] medicamentos = {};
 	protected Caixa caixa;
 	private static boolean statusBalconista;
-	
+	protected int horas;
 	//Utilizacao de STATIC para dependência
 	
 	public Balconista(){}
@@ -63,6 +63,20 @@ public class Balconista extends Pessoa{
 		}
 	}
 	
+	//Utilizacao da clasase abstrata
+	public double calcularSalario(){
+		double comissao = this.fatorComissao;
+		double horasTrabalhadas = this.horas;
+		double salario = 300 + horasTrabalhadas*comissao;
+		this.setSalario(salario);
+		return salario;
+	}
+	
+	private void setSalario(double salario) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public int getSenha() {
 		return senha;
 	}

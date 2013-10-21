@@ -1,6 +1,6 @@
 package entidades;
 
-public class Pessoa {
+public class Pessoa extends Gerente {
 
 	
 	protected String rg;
@@ -10,7 +10,7 @@ public class Pessoa {
 	protected String sobrenome;
 	protected String endereco;
 	protected String telefone;
-	
+	protected double salario;
 	
 	public Pessoa() {}
 
@@ -75,6 +75,11 @@ public class Pessoa {
 		{
 			System.out.println("Funcionário não cadastrado!");
 		}
+	}
+	
+	//Metodo de calculo do salario do funcionario
+	public double calcularSalario(){
+		return this.salario;
 	}
 
 	public String getRg() {

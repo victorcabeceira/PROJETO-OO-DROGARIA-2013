@@ -9,8 +9,7 @@ public class Caixa extends Pessoa{
 	private float valor;
 	private String data;
 	private String descricao; // Informacoes
-								// salario
-
+								
 	protected Cliente[] clientes;
 	protected Balconista[] funcionario;
 	
@@ -50,7 +49,15 @@ public class Caixa extends Pessoa{
 	}
 
 	
+	public double calcularSalario(){
+		this.setSalario(715);
+		return 715;
+	}
 	
+	
+	private void setSalario(double i) {	
+	}
+
 	public Balconista[] getFuncionario() {
 			return funcionario;
 	}
@@ -110,5 +117,13 @@ public class Caixa extends Pessoa{
 
 	public void setSaldoAtual(float saldoAtual) {
 		this.saldoAtual = saldoAtual;
+	}
+
+	public Cliente[] getClientes() {
+		return clientes;
+	}
+
+	public void setFuncionario(Balconista[] funcionario) {
+		this.funcionario = funcionario;
 	}
 }
