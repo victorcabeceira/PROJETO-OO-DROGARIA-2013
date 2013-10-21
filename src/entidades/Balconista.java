@@ -15,6 +15,7 @@ public class Balconista extends Pessoa{
 	protected Caixa caixa;
 	private static boolean statusBalconista;
 	protected int horas;
+	protected int quantidade=0;
 	//Utilizacao de STATIC para depend�ncia
 	
 	public Balconista(){}
@@ -58,8 +59,10 @@ public class Balconista extends Pessoa{
 	
 	//Listar número de medicamentos associados aos funcionários
 	public void listarMedicamentosAssociados(){
-		System.out.println("O n�mero de medicamentos vendidos por funcionário é: ;");
+		System.out.println("Os medicamentos vendidos pelo funcionario" + getNome() + "foram:");
 		for(int i=0; (i < medicamentos.length); i++){
+			quantidade++;
+			System.out.println(quantidade);
 			System.out.println(medicamentos[i].nome);
 		}
 	}

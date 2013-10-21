@@ -1,12 +1,12 @@
 package sistemadrogaria;
 
-import entidades.Caixa;
+import java.text.DecimalFormat;
+
 import entidades.Balconista;
-import entidades.Medicamento;
+import entidades.Caixa;
 import entidades.Cliente;
-import entidades.Pessoa;
-import entidades.Produto;
 import entidades.Gerente;
+import entidades.Medicamento;
 
 public class SistemaDrogaria {
 
@@ -56,20 +56,32 @@ public class SistemaDrogaria {
 		caixa.depositar (150);
 		System.out.println("\nSaldo atual: " + caixa.getSaldoAtual());
 		
-		
+		DecimalFormat df = new DecimalFormat("0.00");  
 		Gerente gerente;
-		
+		double salarioSemana, salarioMes;
+		//Utilização de upcasting (Polimorfismo) e classe abstrata
 		Balconista funcionarioDrogaria1 = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,10,40);
-		
 		gerente = funcionarioDrogaria1;
-		System.out.println("Salario do balconista "+ funcionarioDrogaria1.getNome() + " por semana e: RS " + gerente.calcularSalario() + " E por mes: RS " + (gerente.calcularSalario())/7*30);
-		Caixa funcionarioDrogaria2 = new Caixa ("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1,50,"12/12/2012","Descricao teste!");
+		salarioSemana=gerente.calcularSalario();
+		salarioMes=(gerente.calcularSalario())/7*30;
+		System.out.println("Salario do balconista "+ funcionarioDrogaria1.getNome() + " por semana e: RS" + df.format(salarioSemana));
+		System.out.println(" E por mes: RS " + df.format(salarioMes));
+		
+		double salarioCaixaSemana;
+		double salarioCaixaMes;
+		//Utilização de upcasting (Polimorfismo) e classe abstrata para o Caixa
+		Caixa funcionarioDrogaria2 = new Caixa ("25.555.444-DF","123.456.789", 15, "Henrique", "Augusto", "SHCES Qd 1000", "(61)-1224-5678",1,50,"2/10/2012","Descricao teste!");
+		gerente = funcionarioDrogaria2;
+		salarioCaixaSemana=gerente.calcularSalario()/30*4;
+		salarioCaixaMes=gerente.calcularSalario();
+		System.out.println("Salario do balconista "+ funcionarioDrogaria2.getNome() + " por semana e: RS " + df.format(salarioCaixaSemana) + " E por mes: RS " + df.format(salarioCaixaMes));
+		
 		
 		Medicamento medicamento1 = new Medicamento("NomeTeste", "LaboratorioTeste", "Adulto", "Comprimido", "10/10/2020","1cp. a cada 8 horas");
 		
 		Medicamento medicamento2 = new Medicamento("NomeTeste 2", "LaboratorioTeste 2", "Criança", "Líquido", "01/07/2014","5 ml de 6 em 6 horas");
 	
-		//
+		//Lista de medicamentos para agregação/associação
 		Medicamento[] medicamentos2 = {medicamento1, medicamento2};
 		funcionarioDrogaria1.setMedicamentos(medicamentos2);
 		
