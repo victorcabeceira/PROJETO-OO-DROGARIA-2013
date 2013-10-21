@@ -6,6 +6,7 @@ import entidades.Medicamento;
 import entidades.Cliente;
 import entidades.Pessoa;
 import entidades.Produto;
+import entidades.Gerente;
 
 public class SistemaDrogaria {
 
@@ -16,7 +17,7 @@ public class SistemaDrogaria {
 	public static void main(String[] args) {
 		
 		//Instanciando um objeto da classe dos funcionarios.
-		Balconista funcionarioDrogaria = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2);
+		Balconista funcionarioDrogaria = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2,20);
 		
 		//Instanciando um objeto da classe dos clientes
 		Cliente novoCliente = new Cliente("13.999.888-DF","444.555.666", 11, "Teste", "Teste2" , "Gama qd. 1000", "(61)-1234-5678","cliente1@gmail.com");
@@ -55,7 +56,14 @@ public class SistemaDrogaria {
 		caixa.depositar (150);
 		System.out.println("\nSaldo atual: " + caixa.getSaldoAtual());
 		
-		Balconista funcionarioDrogaria1 = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2);
+		
+		Gerente gerente;
+		
+		Balconista funcionarioDrogaria1 = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,10,40);
+		
+		gerente = funcionarioDrogaria1;
+		System.out.println("Salario do balconista por semana e:" + gerente.calcularSalario());
+		Caixa funcionarioDrogaria2 = new Caixa ("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1,50,"12/12/2012","Descricao teste!");
 		
 		Medicamento medicamento1 = new Medicamento("NomeTeste", "LaboratorioTeste", "Adulto", "Comprimido", "10/10/2020","1cp. a cada 8 horas");
 		

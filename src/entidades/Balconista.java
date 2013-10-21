@@ -21,13 +21,14 @@ public class Balconista extends Pessoa{
 	
 	public Balconista(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa,
 			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa,
-			int senhaBalconista, int senhaFarmaciaPopularBalconista, int codigoBalconista, int fatorComissaoBalconista) {
+			int senhaBalconista, int senhaFarmaciaPopularBalconista, int codigoBalconista, int fatorComissaoBalconista, int horasTrabalhadas) {
 		//Utilização por herança, pegando os atributos através do super
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
 		this.senha=senhaBalconista;
 		this.senhaFarmaciaPopular=senhaFarmaciaPopularBalconista;
 		this.codigo=codigoBalconista;
 		this.fatorComissao=fatorComissaoBalconista;
+		this.horas=horasTrabalhadas;
 		
 	}
 
@@ -67,7 +68,7 @@ public class Balconista extends Pessoa{
 	public double calcularSalario(){
 		double comissao = this.fatorComissao;
 		double horasTrabalhadas = this.horas;
-		double salario = 300 + horasTrabalhadas*comissao;
+		double salario = 75 + horasTrabalhadas*comissao;
 		this.setSalario(salario);
 		return salario;
 	}
@@ -135,6 +136,14 @@ public class Balconista extends Pessoa{
 	public static void setStatusBalconista(boolean statusFuncionarioPresente) {
 		Balconista.statusBalconista = statusFuncionarioPresente;
 		System.out.println("Há um funcionário disponível para atendê-lo! Status:" + statusBalconista);
+	}
+
+	public int getHoras() {
+		return horas;
+	}
+
+	public void setHoras(int horas) {
+		this.horas = horas;
 	}
 
 
