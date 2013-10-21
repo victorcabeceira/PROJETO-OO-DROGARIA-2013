@@ -41,6 +41,21 @@ public class Caixa extends Pessoa{
 	}
 	
 	
+	//Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)
+		public double confirmacaoPagamento() 
+		{
+			if(this.confirmacaoPagamento == 1)
+				{
+				return 1; //Confirma que o pagamento foi aceito.
+				}
+			else
+				{
+				return 0; //Confirma que o pagamento não foi aceito	
+				}
+		}
+		
+	
+	
 	// Método depositar
 	public void depositar(float valor) {
 		System.out.println("Valor do saldo atual: " + saldoAtual);

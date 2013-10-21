@@ -10,7 +10,8 @@ public class Pessoa extends Administrativo{
 	protected String sobrenome;
 	protected String endereco;
 	protected String telefone;
-	protected double salario;
+	protected static double confirmacaoPagamento;//Polimorfismo
+	protected double salario;//Classe Abstrata
 	
 	public Pessoa() {}
 
@@ -77,6 +78,17 @@ public class Pessoa extends Administrativo{
 		}
 	}
 	
+	public double confirmacaoPagamento() 
+	{
+			if(this.confirmacaoPagamento == 1)
+			{
+				return 1; //Confirma que o pagamento foi aceito.
+			}
+			else
+			{
+				return 0; //Confirma que o pagamento não foi aceito	
+			}
+	}
 	//Metodo de calculo do salario do funcionario
 	public double calcularSalario(){
 		return this.salario;

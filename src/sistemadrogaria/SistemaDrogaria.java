@@ -7,6 +7,7 @@ import entidades.Caixa;
 import entidades.Cliente;
 import entidades.Administrativo;
 import entidades.Medicamento;
+import entidades.Pessoa;
 
 public class SistemaDrogaria {
 
@@ -93,6 +94,15 @@ public class SistemaDrogaria {
 		Balconista funcionario = new Balconista();
 		
 		funcionario.Caixa();
+		
+		//Testando o polimorfismo
+		Pessoa pessoa;
+		//Upcasting
+		pessoa = funcionarioDrogaria;
+		System.out.println("A confirmação do pagamento do Funcionário (1: Confirmado e 0:Rejeitado) é: "+ pessoa.confirmacaoPagamento());
+		//Upcasting
+		pessoa = caixa;
+		System.out.println("A confirmação do pagamento do Caixa (1: Confirmado e 0:Rejeitado) é: "+ pessoa.confirmacaoPagamento());
 	}
 
 }

@@ -33,6 +33,19 @@ public class Balconista extends Pessoa{
 		
 	}
 
+	//Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)
+	public double confirmacaoPagamento() 
+	{
+			if(this.confirmacaoPagamento == 1)
+			{
+				return 1; //Confirma que o pagamento foi aceito.
+			}
+			else
+			{
+				return 0; //Confirma que o pagamento não foi aceito	
+			}
+	}
+			
 	
 	public void setMedicamentos(Medicamento[] medicamentos) {
 		if(medicamentos.length < 1){
@@ -130,6 +143,14 @@ public class Balconista extends Pessoa{
 
 	public Medicamento[] getMedicamentos() {
 		return medicamentos;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 
 	public static boolean isStatusBalconista() {
