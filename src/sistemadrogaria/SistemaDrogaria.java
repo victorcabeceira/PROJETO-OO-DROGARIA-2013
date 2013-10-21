@@ -62,7 +62,7 @@ public class SistemaDrogaria {
 		Balconista funcionarioDrogaria1 = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,10,40);
 		
 		gerente = funcionarioDrogaria1;
-		System.out.println("Salario do balconista por semana e:" + gerente.calcularSalario());
+		System.out.println("Salario do balconista "+ funcionarioDrogaria1.getNome() + " por semana e: RS " + gerente.calcularSalario() + " E por mes: RS " + (gerente.calcularSalario())/7*30);
 		Caixa funcionarioDrogaria2 = new Caixa ("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1,50,"12/12/2012","Descricao teste!");
 		
 		Medicamento medicamento1 = new Medicamento("NomeTeste", "LaboratorioTeste", "Adulto", "Comprimido", "10/10/2020","1cp. a cada 8 horas");
