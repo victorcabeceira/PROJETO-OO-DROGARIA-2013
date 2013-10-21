@@ -1,7 +1,7 @@
 package entidades;
 
 import entidades.Cliente;
-import entidades.Funcionario;
+import entidades.Balconista;
 
 public class Caixa extends Pessoa{
 	private float saldoAtual = 0;
@@ -12,7 +12,7 @@ public class Caixa extends Pessoa{
 								// salario
 
 	protected Cliente[] clientes;
-	protected Funcionario[] funcionario;
+	protected Balconista[] funcionario;
 	
 	public Caixa() {
 		this.saldoAtual = 0;
@@ -36,6 +36,9 @@ public class Caixa extends Pessoa{
 			System.out.println("Caixa nao cadastrado.");
 			
 		}
+		
+		System.out.println("Verificacao de um funcionário para atendê-lo.");
+		Balconista.setStatusBalconista(true); //Utilizacao de static para dependência
 	}
 	
 	
@@ -48,7 +51,7 @@ public class Caixa extends Pessoa{
 
 	
 	
-	public Funcionario[] getFuncionario() {
+	public Balconista[] getFuncionario() {
 			return funcionario;
 	}
 		  

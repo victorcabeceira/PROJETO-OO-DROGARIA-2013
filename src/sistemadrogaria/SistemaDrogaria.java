@@ -1,7 +1,7 @@
 package sistemadrogaria;
 
 import entidades.Caixa;
-import entidades.Funcionario;
+import entidades.Balconista;
 import entidades.Medicamento;
 import entidades.Cliente;
 
@@ -14,7 +14,7 @@ public class SistemaDrogaria {
 	public static void main(String[] args) {
 		
 		//Instanciando um objeto da classe dos funcionarios.
-		Funcionario funcionarioDrogaria = new Funcionario("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2);
+		Balconista funcionarioDrogaria = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2);
 		
 		//Instanciando um objeto da classe dos clientes
 		Cliente novoCliente = new Cliente("13.999.888-DF","444.555.666", 11, "Teste", "Teste2" , "Gama qd. 1000", "(61)-1234-5678","cliente1@gmail.com");
@@ -56,7 +56,7 @@ public class SistemaDrogaria {
 		
 		
 		//Associação
-		Funcionario funcionarioDrogaria1 = new Funcionario("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2);
+		Balconista funcionarioDrogaria1 = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2);
 		
 		Medicamento medicamento1 = new Medicamento("NomeTeste", "LaboratorioTeste", "Adulto", "Comprimido", "10/10/2020","1cp. a cada 8 horas");
 		
@@ -71,7 +71,7 @@ public class SistemaDrogaria {
 		
 		Caixa[] caixaAdd={};
 		
-		Funcionario funcionario = new Funcionario();
+		Balconista funcionario = new Balconista();
 		
 		funcionario.Caixa();
 	}

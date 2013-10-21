@@ -4,7 +4,7 @@ public class Medicamento extends Produto {
 	
 	protected String tipo; //Comprimidos, liquido, etc
 	protected String posologia;
-	protected Funcionario funcionario;
+	protected Balconista balconista;
 	
 	public Medicamento (){}
 	

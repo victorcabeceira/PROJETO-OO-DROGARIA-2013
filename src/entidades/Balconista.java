@@ -3,7 +3,7 @@ package entidades;
 import entidades.Caixa;
 import entidades.Medicamento;
 
-public class Funcionario extends Pessoa{
+public class Balconista extends Pessoa{
 
 	//Declaracao de atributos
 	
@@ -13,19 +13,21 @@ public class Funcionario extends Pessoa{
 	protected int fatorComissao;
 	protected Medicamento[] medicamentos = {};
 	protected Caixa caixa;
+	private static boolean statusBalconista;
 	
-	public Funcionario(){}
+	//Utilizacao de STATIC para dependência
 	
-	public Funcionario(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa,
+	public Balconista(){}
+	
+	public Balconista(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa,
 			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa,
-			int senhaFuncionario, int senhaFarmaciaPopularFunc, int codigoFuncionario, int fatorComissaoFuncionario) {
+			int senhaBalconista, int senhaFarmaciaPopularBalconista, int codigoBalconista, int fatorComissaoBalconista) {
 		//Utilização por herança, pegando os atributos através do super
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
-		this.senha=senhaFuncionario;
-		this.senhaFarmaciaPopular=senhaFarmaciaPopularFunc;
-		this.codigo=codigoFuncionario;
-		this.fatorComissao=fatorComissaoFuncionario;
-		
+		this.senha=senhaBalconista;
+		this.senhaFarmaciaPopular=senhaFarmaciaPopularBalconista;
+		this.codigo=codigoBalconista;
+		this.fatorComissao=fatorComissaoBalconista;
 		
 	}
 
@@ -61,14 +63,6 @@ public class Funcionario extends Pessoa{
 		}
 	}
 	
-	public void Caixa () {
-		//Caixa depende de funcionario
-		Caixa caixa = new Caixa();
-		this.caixa = caixa;
-	}
-		
-
-
 	public int getSenha() {
 		return senha;
 	}
@@ -101,6 +95,13 @@ public class Funcionario extends Pessoa{
 		this.fatorComissao = fatorComissao;
 	}
 
+	public void Caixa () {
+		//Caixa depende de funcionario
+		Caixa caixa = new Caixa();
+		this.caixa = caixa;
+	}
+		
+
 	public Caixa getCaixa() {
 		return caixa;
 	}
@@ -111,6 +112,15 @@ public class Funcionario extends Pessoa{
 
 	public Medicamento[] getMedicamentos() {
 		return medicamentos;
+	}
+
+	public static boolean isStatusBalconista() {
+		return statusBalconista;
+	}
+
+	public static void setStatusBalconista(boolean statusFuncionarioPresente) {
+		Balconista.statusBalconista = statusFuncionarioPresente;
+		System.out.println("Há um funcionário disponível para atendê-lo! Status:" + statusBalconista);
 	}
 
 
