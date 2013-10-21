@@ -5,7 +5,7 @@ import java.text.DecimalFormat;
 import entidades.Balconista;
 import entidades.Caixa;
 import entidades.Cliente;
-import entidades.Gerente;
+import entidades.Administrativo;
 import entidades.Medicamento;
 
 public class SistemaDrogaria {
@@ -57,13 +57,13 @@ public class SistemaDrogaria {
 		System.out.println("\nSaldo atual: " + caixa.getSaldoAtual());
 		
 		DecimalFormat df = new DecimalFormat("0.00");  
-		Gerente gerente;
+		Administrativo administrativo;
 		double salarioSemana, salarioMes;
 		//Utilização de upcasting (Polimorfismo) e classe abstrata
 		Balconista funcionarioDrogaria1 = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,10,40);
-		gerente = funcionarioDrogaria1;
-		salarioSemana=gerente.calcularSalario();
-		salarioMes=(gerente.calcularSalario())/7*30;
+		administrativo = funcionarioDrogaria1;
+		salarioSemana=administrativo.calcularSalario();
+		salarioMes=(administrativo.calcularSalario())/7*30;
 		System.out.println("Salario do balconista "+ funcionarioDrogaria1.getNome() + " por semana e: RS" + df.format(salarioSemana));
 		System.out.println(" E por mes: RS " + df.format(salarioMes));
 		
@@ -71,9 +71,9 @@ public class SistemaDrogaria {
 		double salarioCaixaMes;
 		//Utilização de upcasting (Polimorfismo) e classe abstrata para o Caixa
 		Caixa funcionarioDrogaria2 = new Caixa ("25.555.444-DF","123.456.789", 15, "Henrique", "Augusto", "SHCES Qd 1000", "(61)-1224-5678",1,50,"2/10/2012","Descricao teste!");
-		gerente = funcionarioDrogaria2;
-		salarioCaixaSemana=gerente.calcularSalario()/30*4;
-		salarioCaixaMes=gerente.calcularSalario();
+		administrativo = funcionarioDrogaria2;
+		salarioCaixaSemana=administrativo.calcularSalario()/30*4;
+		salarioCaixaMes=administrativo.calcularSalario();
 		System.out.println("Salario do balconista "+ funcionarioDrogaria2.getNome() + " por semana e: RS " + df.format(salarioCaixaSemana) + " E por mes: RS " + df.format(salarioCaixaMes));
 		
 		

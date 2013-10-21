@@ -1,8 +1,8 @@
 package entidades;
 
-public abstract class Gerente {
+public abstract class Administrativo {
 
-	public Gerente() {
+	public Administrativo() {
 	}
 
 	public abstract double calcularSalario();

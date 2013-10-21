@@ -1,6 +1,6 @@
 package entidades;
 
-public class Pessoa extends Gerente {
+public class Pessoa extends Administrativo{
 
 	
 	protected String rg;
