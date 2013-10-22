@@ -5,7 +5,8 @@ public class Cliente extends Pessoa{
 	
 	protected String email;
 	protected Caixa[] caixas;
-
+	Balconista[] balconistas = {};
+	
 	public Cliente(){}
 	
 	//Construtor só para herança
@@ -31,7 +32,21 @@ public class Cliente extends Pessoa{
 		}
 	}
 	
+	//Agregação
+	public void listarBalconistas(){
+		System.out.println("Os balconistas sao: ");
+		for(int n=0;n<balconistas.length;n++){
+			System.out.println(balconistas[n].nome);
+	}
+	}
 	
+	public void adicionarBalconista(Balconista balconista){
+		int tamanhoAnterior=this.balconistas.length;
+		Balconista[] novosBalconistas = new Balconista[tamanhoAnterior+1];
+		for(int n=0;n<tamanhoAnterior;n++){novosBalconistas[n] = this.balconistas[n];}
+		novosBalconistas[novosBalconistas.length-1] = balconista;
+		this.setBalconistas(novosBalconistas);
+	}//Fim agregação-espelho
 
 	public String getEmail() {
 		return email;
@@ -46,6 +61,14 @@ public class Cliente extends Pessoa{
 
 	public void setCaixas(Caixa[] caixas) {
 		this.caixas = caixas;
+	}
+
+	public Balconista[] getBalconistas() {
+		return balconistas;
+	}
+
+	public void setBalconistas(Balconista[] balconistas) {
+		this.balconistas = balconistas;
 	}
 
 

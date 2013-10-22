@@ -9,7 +9,7 @@ public class Caixa extends Pessoa{
 	private float valor;
 	private String data;
 	private String descricao; // Informacoes
-								
+	private Balconista balconista;							
 	protected Cliente[] clientes;
 	protected Balconista[] funcionario;
 	
@@ -39,6 +39,12 @@ public class Caixa extends Pessoa{
 		System.out.println("Verificacao de um funcionário para atendê-lo.");
 		Balconista.setStatusBalconista(true); //Utilizacao de static para dependência
 	}
+	
+	//Composição
+	/*public void criarBalconista(){
+		Balconista balconista = new Balconista(this);
+		setBalconista(balconista);
+	}*/
 	
 	
 	//Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)

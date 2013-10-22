@@ -17,6 +17,7 @@ public class Balconista extends Pessoa{
 	protected int horas;
 	protected int quantidade=0;
 	//Utilizacao de STATIC para dependência
+	Cliente[] clientes = {};
 	
 	public Balconista(){}
 	
@@ -90,9 +91,23 @@ public class Balconista extends Pessoa{
 		return salario;
 	}
 	
+	//Agregação entre cliente e balconista
+	public void listarClientesAtendidos(){
+		System.out.println("Os clientes sao: ");
+		for(int n=0;n<clientes.length;n++){
+			System.out.println(clientes[n].nome);
+		}
+	}
+	
+	public void adicionarCLiente(Cliente cliente){
+		int tamanhoAnterior=this.clientes.length;
+		Cliente[] novosClientes = new Cliente[tamanhoAnterior+1];
+		for(int n=0;n<tamanhoAnterior;n++){novosClientes[n] = this.clientes[n];}
+		novosClientes[novosClientes.length-1] = cliente;
+		this.setClientes(novosClientes);
+	}//Fim Agregação
+	
 	private void setSalario(double salario) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public int getSenha() {
@@ -169,6 +184,14 @@ public class Balconista extends Pessoa{
 
 	public void setHoras(int horas) {
 		this.horas = horas;
+	}
+
+	public Cliente[] getClientes() {
+		return clientes;
+	}
+
+	public void setClientes(Cliente[] clientes) {
+		this.clientes = clientes;
 	}
 
 
