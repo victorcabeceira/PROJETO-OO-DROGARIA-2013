@@ -18,6 +18,10 @@ public class Cliente extends Pessoa{
 			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa,String emailCliente) {
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
 		this.email=emailCliente;
+		
+		System.out.println("Possui pelo menos um balconista para atendê-lo!!");
+		Balconista.setStatusBalconista(true);
+		//Por ser static, não é necessário instanciar.
 	}
 	
 

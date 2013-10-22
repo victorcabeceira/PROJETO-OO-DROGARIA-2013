@@ -31,6 +31,7 @@ public class Balconista extends Pessoa{
 		this.fatorComissao=fatorComissaoBalconista;
 		this.horas=horasTrabalhadas;
 		
+		
 	}
 
 	//Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)
@@ -156,7 +157,7 @@ public class Balconista extends Pessoa{
 	public static boolean isStatusBalconista() {
 		return statusBalconista;
 	}
-
+    //Dependência entre Cliente e Balconista.
 	public static void setStatusBalconista(boolean statusFuncionarioPresente) {
 		Balconista.statusBalconista = statusFuncionarioPresente;
 		System.out.println("Há um funcionário disponível para atendê-lo! Status:" + statusBalconista);
