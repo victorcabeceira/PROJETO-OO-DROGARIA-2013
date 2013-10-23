@@ -4,7 +4,7 @@ public class Medicamento extends Produto {
 	
 	protected String tipo; //Comprimidos, liquido, etc
 	protected String posologia;
-	protected Balconista balconista;
+	protected Registro_Anvisa registro;
 	
 	public Medicamento (){}
 	
@@ -33,6 +33,16 @@ public class Medicamento extends Produto {
 
 	public void setPosologia(String posologia) {
 		this.posologia = posologia;
+	}
+
+
+	public Registro_Anvisa getRegistro() {
+		return registro;
+	}
+
+
+	public void setRegistro(Registro_Anvisa registro) {
+		this.registro = registro;
 	}
 	
 	
