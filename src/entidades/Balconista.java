@@ -72,13 +72,12 @@ public class Balconista extends Pessoa{
 		
 	}
 	
-	//Listar número de medicamentos associados aos funcionários
+	//Listar numero de medicamentos associados aos funcionarios
 	public void listarMedicamentosAssociados(){
-		System.out.println("Os medicamentos vendidos pelo funcionario" + getNome() + "foram:");
+		System.out.println("Os medicamentos vendidos pelo funcionario " + getNome() + " foram:");
 		for(int i=0; (i < medicamentos.length); i++){
 			quantidade++;
-			System.out.println(quantidade);
-			System.out.println(medicamentos[i].nome);
+			System.out.println(quantidade + " " + medicamentos[i].nome);
 		}
 	}
 	
