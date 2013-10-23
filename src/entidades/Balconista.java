@@ -17,7 +17,7 @@ public class Balconista extends Pessoa{
 	protected int horas;
 	protected int quantidade=0;
 	//Utilizacao de STATIC para dependência
-	protected Cliente[] clientes = {};
+	Cliente[] clientes = {};
 	
 	public Balconista(){}
 	
