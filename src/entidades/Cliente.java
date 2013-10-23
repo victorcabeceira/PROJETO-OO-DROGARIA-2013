@@ -31,23 +31,7 @@ public class Cliente extends Pessoa{
 			System.out.println(("Caixa [" +x +"]:" +caixas[x]));
 		}
 	}
-	/*
-	//Agregação
-	public void listarBalconistas(){
-		System.out.println("Os balconistas sao: ");
-		for(int n=0;n<balconistas.length;n++){
-			System.out.println(balconistas[n].nome);
-	}
-	}
 	
-	public void adicionarBalconista(Balconista balconista){
-		int tamanhoAnterior=this.balconistas.length;
-		Balconista[] novosBalconistas = new Balconista[tamanhoAnterior+1];
-		for(int n=0;n<tamanhoAnterior;n++){novosBalconistas[n] = this.balconistas[n];}
-		novosBalconistas[novosBalconistas.length-1] = balconista;
-		this.setBalconistas(novosBalconistas);
-	}//Fim agregação-espelho*/
-
 	public String getEmail() {
 		return email;
 	}
