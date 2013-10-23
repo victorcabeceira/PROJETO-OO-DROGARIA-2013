@@ -8,6 +8,7 @@ import entidades.Cliente;
 import entidades.Administrativo;
 import entidades.Medicamento;
 import entidades.Pessoa;
+import entidades.Registro;
 
 public class SistemaDrogaria {
 
@@ -20,9 +21,6 @@ public class SistemaDrogaria {
 		//Instanciando um objeto da classe dos funcionarios.
 		Balconista funcionarioDrogaria = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2,20);
 		
-		/*Balconista funcionarioDrogariaAgregacao = new Balconista("54.543.543-PA","123.456.789", 12, "TESTE", "TESTE2", "GAMA Qd 1000", "(61)-1234-5678",1234,5678,20,2,20);
-		
-		Balconista[] balconistasClientes={funcionarioDrogaria,funcionarioDrogariaAgregacao};*/
 		//Instanciando um objeto da classe dos clientes - DEPENDENCIA CORRIGIDA
 		Cliente novoCliente = new Cliente("13.999.888-DF","444.555.666", 11, "Teste", "Teste" , "Gama qd. 1000", "(61)-1234-5678","cliente1@gmail.com");
 		
@@ -86,15 +84,30 @@ public class SistemaDrogaria {
 		Medicamento medicamento1 = new Medicamento("NomeTeste", "LaboratorioTeste", "Adulto", "Comprimido", "10/10/2020","1cp. a cada 8 horas");
 		
 		Medicamento medicamento2 = new Medicamento("NomeTeste 2", "LaboratorioTeste 2", "Criança", "Líquido", "01/07/2014","5 ml de 6 em 6 horas");
-	
-		//Lista de medicamentos para agregação/associação
-		Medicamento[] medicamentos2 = {medicamento1, medicamento2};
-		funcionarioDrogaria1.setMedicamentos(medicamentos2);
+		
+		//Lista de medicamentos para associacao
+		Medicamento[] medicamentosAs = {medicamento1, medicamento2};
+		funcionarioDrogaria1.setMedicamentos(medicamentosAs);
 		
 		//Listando
 		funcionarioDrogaria1.listarMedicamentosAssociados();
 		
-		Caixa[] caixaAdd={};
+		//Agregacao
+		Medicamento medicamento3 = new Medicamento("Paracetamol","Germed","Infantil","Líquido","01/08/2015","2,5 ml a cada 4 horas");
+		Medicamento medicamento4 = new Medicamento("Aspirina","Germed","Adulto","Comprimido","01/08/2015","8 em 8 horas");
+		
+		Registro registro1 = new Registro("12.345");
+		Registro registro2 = new Registro("P-4.333");
+		
+		registro1.setMedicamento(medicamento3);
+		medicamento3.setRegistro(registro1);
+		medicamento3.listarRegistro();
+		//Espelho
+		medicamento4.setRegistro(registro2);
+		registro2.setMedicamento(medicamento4);
+		registro2.listarMedicamento();
+		
+		
 		
 		Balconista funcionario = new Balconista();
 		
@@ -108,10 +121,6 @@ public class SistemaDrogaria {
 		//Upcasting
 		pessoa = caixa;
 		System.out.println("A confirmação do pagamento do Caixa (1: Confirmado e 0:Rejeitado) é: "+ pessoa.confirmacaoPagamento());
-		
-		
-		//TESTE AGREGACAO CORRIGIDA
-		
 	}
 
 }

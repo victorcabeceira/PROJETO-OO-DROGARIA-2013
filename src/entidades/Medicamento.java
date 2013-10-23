@@ -1,10 +1,12 @@
 package entidades;
 
+import entidades.Registro;
+
 public class Medicamento extends Produto {
 	
 	protected String tipo; //Comprimidos, liquido, etc
 	protected String posologia;
-	protected Registro_Anvisa registro;
+	protected Registro registro;
 	
 	public Medicamento (){}
 	
@@ -14,8 +16,22 @@ public class Medicamento extends Produto {
 		this.tipo = tipoMedicamento;
 		this.posologia= posologiaMedicamento;
 	}
+	
+	//Agregacao - Listagem e adicao
+	public void listarRegistro(){
+		System.out.println("O registro do medicamento "+ this.nome +" é:" + registro.codigo);
+	}
 
-
+	public void adicionarRegistro()
+	{
+		Registro novoRegistro = new Registro();
+		novoRegistro=this.registro;
+		this.setRegistro(novoRegistro);
+	}//Fim Agregacao
+	
+	
+	//Getters & Setters
+	
 	public String getTipo() {
 		return tipo;
 	}
@@ -36,12 +52,12 @@ public class Medicamento extends Produto {
 	}
 
 
-	public Registro_Anvisa getRegistro() {
+	public Registro getRegistro() {
 		return registro;
 	}
 
 
-	public void setRegistro(Registro_Anvisa registro) {
+	public void setRegistro(Registro registro) {
 		this.registro = registro;
 	}
 	
