@@ -89,22 +89,23 @@ public class Balconista extends Pessoa{
 		this.setSalario(salario);
 		return salario;
 	}
-	/*
-	//Agregação entre cliente e balconista
-	public void listarClientesAtendidos(){
-		System.out.println("Os clientes sao: ");
-		for(int n=0;n<clientes.length;n++){
-			System.out.println(clientes[n].nome);
-		}
+	
+	//Composicao
+	public Balconista(Caixa caixa){
+		this.caixa=caixa;
 	}
 	
-	public void adicionarCLiente(Cliente cliente){
-		int tamanhoAnterior=this.clientes.length;
-		Cliente[] novosClientes = new Cliente[tamanhoAnterior+1];
-		for(int n=0;n<tamanhoAnterior;n++){novosClientes[n] = this.clientes[n];}
-		novosClientes[novosClientes.length-1] = cliente;
-		this.setClientes(novosClientes);
-	}//Fim Agregação*/
+	public void cadastrarBalconista(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa,
+			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa) {
+		this.rg=rgPessoa;
+		this.cpf=cpfPessoa;
+		this.digitoCpf=digitoCpfPessoa;
+		this.nome=nomePessoa;
+		this.sobrenome=sobrenomePessoa;
+		this.endereco=enderecoPessoa;
+		this.telefone=telefonePessoa;
+	}
+	
 	
 	private void setSalario(double salario) {
 	}
@@ -140,14 +141,7 @@ public class Balconista extends Pessoa{
 	public void setFatorComissao(int fatorComissao) {
 		this.fatorComissao = fatorComissao;
 	}
-
-	public void Caixa () {
-		//Caixa depende de funcionario
-		Caixa caixa = new Caixa();
-		this.caixa = caixa;
-	}
 		
-
 	public Caixa getCaixa() {
 		return caixa;
 	}
@@ -192,6 +186,8 @@ public class Balconista extends Pessoa{
 	public void setClientes(Cliente[] clientes) {
 		this.clientes = clientes;
 	}
+
+	
 
 
 }

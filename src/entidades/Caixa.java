@@ -34,17 +34,23 @@ public class Caixa extends Pessoa{
 		else {
 			System.out.println("Caixa nao cadastrado.");
 			
+			
 		}
+		//Composicao - so existe um Caixa se ja existir um balconista!
+		Balconista balconista = new Balconista(this);
+		this.balconista=balconista;
+			
+		
 		
 		System.out.println("Verificacao de um funcionário para atendê-lo.");
 		Balconista.setStatusBalconista(true); //Utilizacao de static para dependência
 	}
 	
-	//Composição
-	/*public void criarBalconista(){
+	//Composicao - Criacao de um novo caixa a partir de um balconista
+	public void criarBalconista(){
 		Balconista balconista = new Balconista(this);
-		setBalconista(balconista);
-	}*/
+		this.balconista=balconista;
+	}
 	
 	
 	//Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)
@@ -76,6 +82,7 @@ public class Caixa extends Pessoa{
 	}
 	
 	
+	// Especificando métodos get and set.
 	private void setSalario(double i) {	
 	}
 
@@ -94,12 +101,10 @@ public class Caixa extends Pessoa{
 	public void listarClientes () {
 		    for (int x=0; x<(clientes.length); x+=1)
 		    {
-		      System.out.println(("Clientes: [" +x +"]: "+clientes[x]));
+		      System.out.println(("Clientes: ["+ x +"]: " + clientes[x]));
 		    }
 	}
 	
-	
-	// Especificando métodos get and set.
 	public int getTipo() {
 		return tipo;
 	}
@@ -146,5 +151,9 @@ public class Caixa extends Pessoa{
 
 	public void setFuncionario(Balconista[] funcionario) {
 		this.funcionario = funcionario;
+	}
+
+	public Balconista getBalconista() {
+		return balconista;
 	}
 }

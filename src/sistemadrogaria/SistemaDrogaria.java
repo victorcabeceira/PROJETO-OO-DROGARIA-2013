@@ -19,7 +19,7 @@ public class SistemaDrogaria {
 	public static void main(String[] args) {
 		
 		//Instanciando um objeto da classe dos funcionarios.
-		Balconista funcionarioDrogaria = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2,20);
+		Balconista funcionarioDrogaria = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)1234-5678",1234,5678,20,2,20);
 		
 		//Instanciando um objeto da classe dos clientes - DEPENDENCIA CORRIGIDA
 		Cliente novoCliente = new Cliente("13.999.888-DF","444.555.666", 11, "Teste", "Teste" , "Gama qd. 1000", "(61)-1234-5678","cliente1@gmail.com");
@@ -107,6 +107,17 @@ public class SistemaDrogaria {
 		registro2.setMedicamento(medicamento4);
 		registro2.listarMedicamento();
 		//Fim Agregacao
+		
+		
+		//Composicao3
+		Caixa caixaComposicao = new Caixa("25.555.444-DF","123.456.789", 15, "Henrique", "Augusto", "SHCES Qd 1000", "(61)-1224-5678",1,50,"2/10/2012","Descricao teste!");
+		
+		caixaComposicao.criarBalconista();
+		caixaComposicao.getBalconista().cadastrarBalconista("13.523.542-PA","123.456.789", 12, "Joao", "Augusto", "Asa sul", "(61)1234-5678");
+		
+		System.out.println("O Funcionario do Caixa é:" + caixaComposicao.getBalconista().getNome());
+		
+		//Fim Composicao
 		
 		
 		//Polimorfismo
