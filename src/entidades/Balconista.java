@@ -90,7 +90,7 @@ public class Balconista extends Pessoa{
 		this.setSalario(salario);
 		return salario;
 	}
-	
+	/*
 	//Agregação entre cliente e balconista
 	public void listarClientesAtendidos(){
 		System.out.println("Os clientes sao: ");
@@ -105,7 +105,7 @@ public class Balconista extends Pessoa{
 		for(int n=0;n<tamanhoAnterior;n++){novosClientes[n] = this.clientes[n];}
 		novosClientes[novosClientes.length-1] = cliente;
 		this.setClientes(novosClientes);
-	}//Fim Agregação
+	}//Fim Agregação*/
 	
 	private void setSalario(double salario) {
 	}

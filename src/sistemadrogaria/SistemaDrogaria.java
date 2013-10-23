@@ -20,9 +20,9 @@ public class SistemaDrogaria {
 		//Instanciando um objeto da classe dos funcionarios.
 		Balconista funcionarioDrogaria = new Balconista("13.523.542-PA","123.456.789", 12, "Victor", "Fellipe", "SHCES Qd 1000", "(61)-1234-5678",1234,5678,20,2,20);
 		
-		Balconista funcionarioDrogariaAgregacao = new Balconista("54.543.543-PA","123.456.789", 12, "TESTE", "TESTE2", "GAMA Qd 1000", "(61)-1234-5678",1234,5678,20,2,20);
+		/*Balconista funcionarioDrogariaAgregacao = new Balconista("54.543.543-PA","123.456.789", 12, "TESTE", "TESTE2", "GAMA Qd 1000", "(61)-1234-5678",1234,5678,20,2,20);
 		
-		Balconista[] balconistasClientes={funcionarioDrogaria,funcionarioDrogariaAgregacao};
+		Balconista[] balconistasClientes={funcionarioDrogaria,funcionarioDrogariaAgregacao};*/
 		//Instanciando um objeto da classe dos clientes - DEPENDENCIA CORRIGIDA
 		Cliente novoCliente = new Cliente("13.999.888-DF","444.555.666", 11, "Teste", "Teste" , "Gama qd. 1000", "(61)-1234-5678","cliente1@gmail.com");
 		

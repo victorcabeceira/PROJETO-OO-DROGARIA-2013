@@ -20,7 +20,7 @@ public class Cliente extends Pessoa{
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
 		this.email=emailCliente;
 		
-		System.out.println("Possui pelo menos um balconista para atendê-lo!!");
+		System.out.println("Possui pelo menos um balconista para atendê-lo!!"); // ---> DEPENDENCIA
 		Balconista.setStatusBalconista(true);
 		//Por ser static, não é necessário instanciar.
 	}
@@ -31,7 +31,7 @@ public class Cliente extends Pessoa{
 			System.out.println(("Caixa [" +x +"]:" +caixas[x]));
 		}
 	}
-	
+	/*
 	//Agregação
 	public void listarBalconistas(){
 		System.out.println("Os balconistas sao: ");
@@ -46,7 +46,7 @@ public class Cliente extends Pessoa{
 		for(int n=0;n<tamanhoAnterior;n++){novosBalconistas[n] = this.balconistas[n];}
 		novosBalconistas[novosBalconistas.length-1] = balconista;
 		this.setBalconistas(novosBalconistas);
-	}//Fim agregação-espelho
+	}//Fim agregação-espelho*/
 
 	public String getEmail() {
 		return email;
