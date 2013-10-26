@@ -1,6 +1,7 @@
 package entidades;
+import interfaces.*;
 
-public class Cliente extends Pessoa{
+public class Cliente extends Pessoa implements Recomendavel{
 	
 	
 	protected String email;
@@ -25,28 +26,35 @@ public class Cliente extends Pessoa{
 		//Por ser static, não é necessário instanciar.
 	}
 	
+	
+	//Interface
+	public void remediosRecomendados (String tipoRemedio, String uso) {
+				if(tipoRemedio == "TARJA PRETA" && uso == "ADULTO") {
+					System.out.println("A quantidade de remedios recomendados pelo Balconista é: 1");
+				}
+				
+				if(tipoRemedio == "TARJA PRETA" && uso == "PEDIATRICO") {
+					System.out.println("A quantidade de remedios recomendados pelo Balconista é: 0");
+				}
+				
+				if(tipoRemedio == "GENERICO" && uso == "ADULTO") {
+					System.out.println("A quantidade de remedios recomendados pelo Balconista é: 5");
+				}
+				
+				if(tipoRemedio == "GENERICO" && uso == "PEDIATRICO") {
+					System.out.println("A quantidade de remedios recomendados pelo Balconista é: 3");
+				}
+					
+					
+		}
+
 
 	public void listarCaixas() {
 		for (int x=0; x<(caixas.length); x+=1) {
 			System.out.println(("Caixa [" +x +"]:" +caixas[x]));
 		}
 	}
-	/*
-	//Agregação
-	public void listarBalconistas(){
-		System.out.println("Os balconistas sao: ");
-		for(int n=0;n<balconistas.length;n++){
-			System.out.println(balconistas[n].nome);
-	}
-	}
 	
-	public void adicionarBalconista(Balconista balconista){
-		int tamanhoAnterior=this.balconistas.length;
-		Balconista[] novosBalconistas = new Balconista[tamanhoAnterior+1];
-		for(int n=0;n<tamanhoAnterior;n++){novosBalconistas[n] = this.balconistas[n];}
-		novosBalconistas[novosBalconistas.length-1] = balconista;
-		this.setBalconistas(novosBalconistas);
-	}//Fim agregação-espelho*/
 
 	public String getEmail() {
 		return email;
