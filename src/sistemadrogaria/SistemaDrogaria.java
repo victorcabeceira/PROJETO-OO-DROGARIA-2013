@@ -129,6 +129,8 @@ public class SistemaDrogaria {
 		pessoa = caixa;
 		System.out.println("A confirmação do pagamento do Caixa (1: Confirmado e 0:Rejeitado) é: "+ pessoa.confirmacaoPagamento());
 		
+		
+		//Interface
 		Cliente novoClienteInterface = new Cliente("13.999.888-DF","444.555.666", 11, "INTERFACE", "INTERFACE" , "Gama qd. 1000", "(61)-1234-5678","cliente1@gmail.com");
 	    novoClienteInterface.remediosRecomendados("GENERICO", "PEDIATRICO");
 	}
