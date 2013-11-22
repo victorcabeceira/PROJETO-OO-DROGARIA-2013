@@ -43,49 +43,61 @@ public class Apresentacao {
 
 		while (estados != 100) {
 			if (estados == 0) {
+
+				operacao = 0;
 				balconista.menuInicial();
 
 				operacao = scanner.nextInt();
 
 				estados++;
 
-				if (estados == 1) {
+				if (estados >= 1 && estados != 100) {
 					switch (operacao) {
 					case 1:
+						if (operacao == 1) {
+							estados = 2;
+						}
+						while (estados == 2) {
 
-						balconista.menuBalconista();// Menu de balconistas
-						operacaoBalconista = scanner.nextInt();
-						estados = 1;
-						switch (operacaoBalconista) {
-						case 0:
-							System.out.println("Deseja realmente sair?" + "\n(0) - Não" + "\n(1) - Sim");
-							confirmacaoSaida = scanner.nextInt();
-							if (confirmacaoSaida == 1) {
-								estados = 0;
-								System.out.println("Saindo do setor de cadastro de balconistas.");
-							}
-							else if (confirmacaoSaida == 0) {
-								estados = 1;
+							balconista.menuBalconista();// Menu de balconistas
+							operacaoBalconista = scanner.nextInt();
+							if (operacaoBalconista == 0) {
+								System.out.println("Deseja realmente sair?" + "\n(0) - Não" + "\n(1) - Sim");
+								confirmacaoSaida = scanner.nextInt();
+								if (confirmacaoSaida == 1) {
+									estados = 0;
+									System.out.println("Saindo do setor de cadastro de balconistas.");
+								}
+								else if (confirmacaoSaida == 0) {
+									estados = 2;
+								}
+
 							}
 
-							break;
-						case 1:
-							balconista.cadastrarBalconista(listaDeBalconistas);
-							estados = 1;
-							break;
-						case 2:
-							balconista.listarBalconistas(listaDeBalconistas);
-							estados = 1;
-							break;
-						case 3:
-							balconista.excluirBalconista(listaDeBalconistas);
-							break;
-								
-						default:
-						}// Fecha o switch de balconista
-						
+							else if (operacaoBalconista == 1) {
+								balconista.cadastrarBalconista(listaDeBalconistas);
+								estados = 2;
+							}
+
+							else if (operacaoBalconista == 2) {
+								balconista.listarBalconistas(listaDeBalconistas);
+								estados = 2;
+							}
+
+							else if (operacaoBalconista == 3) {
+								balconista.excluirBalconista(listaDeBalconistas);
+								estados = 2;
+							}
+
+							// Fecha o if de balconista
+						}// if de estados = 2;
 					case 2:
-						System.out.println("Caixa");
+						if (operacao == 2) {
+							estados = 3;
+						}
+						if (estados == 3) {
+							System.out.println("Caixa");
+						}
 						break;
 
 					case 3:
