@@ -30,6 +30,7 @@ public class Balconista extends Pessoa {
 	int operacao = 0;
 	int operacaoBalconista = 0, repeteCadastroBalconista = 0, repeteBalconista = 0;
 	int codigoExclusao = 0;
+	int confirmacaoExclusaoBalconista = 0;
 
 	public Balconista() {
 	}
@@ -117,7 +118,7 @@ public class Balconista extends Pessoa {
 	}
 
 	public void menuInicial() {
-		System.out.println("Qual setor você deseja utilizar?" + "\n(1) - Balconista\n" + "(2) - Caixa\n"
+		System.out.println("Qual setor você deseja utilizar?" + "\n(0) - Sair" + "\n(1) - Balconista\n" + "(2) - Caixa\n"
 				+ "(3) - Cliente\n" + "(4) - Produto\n");
 	}
 
@@ -194,8 +195,10 @@ public class Balconista extends Pessoa {
 			System.out.println("Fim da lista de cadastro.\n");
 		}
 
-		/*System.out.println("Deseja realizar outra operacao para balconista?" + "\n(0) - Não" + "\n(1) - Sim");
-		repeteBalconista = scanner.nextInt();*/
+		/*
+		 * System.out.println("Deseja realizar outra operacao para balconista?" + "\n(0) - Não" + "\n(1) - Sim");
+		 * repeteBalconista = scanner.nextInt();
+		 */
 	}
 
 	public void excluirBalconista(ArrayList<Balconista> listaDeBalconistas) {
@@ -206,14 +209,24 @@ public class Balconista extends Pessoa {
 		else {
 			System.out.println("Digite o numero do cadastro que deseja excluir: ");
 			this.setCodigoExclusao(scanner.nextInt());
-			this.setCodigoExclusao(codigoExclusao - 1);
-			listaDeBalconistas.remove(codigoExclusao);
+			System.out.println("Você deseja realmente excluir o cadastro de numero: " + this.codigoExclusao + "?"
+					+ "\n(0) - Não" + "\n(1) - Sim");
+			this.setConfirmacaoExclusaoBalconista(scanner.nextInt());
+			if (confirmacaoExclusaoBalconista == 1) {
+				this.setCodigoExclusao(codigoExclusao - 1);
+				listaDeBalconistas.remove(codigoExclusao);
 
-			System.out.println("A lista foi alterada");
-			listarBalconistas(listaDeBalconistas);
+				System.out.println("A lista foi alterada");
+				listarBalconistas(listaDeBalconistas);
+			}
+			else if (confirmacaoExclusaoBalconista == 0) {
+				this.setCodigoExclusao(0);
+			}
 		}
-		/*System.out.println("Deseja realizar outra operacao para balconista?" + "\n(0) - Não" + "\n(1) - Sim");
-		repeteBalconista = scanner.nextInt();*/
+		/*
+		 * System.out.println("Deseja realizar outra operacao para balconista?" + "\n(0) - Não" + "\n(1) - Sim");
+		 * repeteBalconista = scanner.nextInt();
+		 */
 	}
 
 	private void setSalario(double salario) {
@@ -367,6 +380,22 @@ public class Balconista extends Pessoa {
 
 	public void setCodigoExclusao(int codigoExclusao) {
 		this.codigoExclusao = codigoExclusao;
+	}
+
+	public Scanner getScanner1() {
+		return scanner1;
+	}
+
+	public void setScanner1(Scanner scanner1) {
+		this.scanner1 = scanner1;
+	}
+
+	public int getConfirmacaoExclusaoBalconista() {
+		return confirmacaoExclusaoBalconista;
+	}
+
+	public void setConfirmacaoExclusaoBalconista(int confirmacaoExclusaoBalconista) {
+		this.confirmacaoExclusaoBalconista = confirmacaoExclusaoBalconista;
 	}
 
 }
