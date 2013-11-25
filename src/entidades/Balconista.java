@@ -21,16 +21,17 @@ public class Balconista extends Pessoa {
 	protected int quantidade = 0;
 	// Utilizacao de STATIC para dependência
 	Cliente[] clientes = {};
+	
+	
+	//SOmente para criação do console;
 	Balconista[] balconista = {};
 	Scanner scanner = new Scanner(System.in);
 	Scanner scanner1 = new Scanner(System.in);
-
-	boolean executar = true;
-	String recomecar = "sim";
-	int operacao = 0;
-	int operacaoBalconista = 0, repeteCadastroBalconista = 0, repeteBalconista = 0;
-	int codigoExclusao = 0;
-	int confirmacaoExclusaoBalconista = 0;
+	private int operacao = 0;
+	private int operacaoBalconista = 0, repeteCadastroBalconista = 0, repeteBalconista = 0;
+	private int codigoExclusao = 0;
+	private int confirmacaoExclusaoBalconista = 0;
+	private Object getCpf;
 
 	public Balconista() {
 	}
@@ -119,7 +120,7 @@ public class Balconista extends Pessoa {
 
 	public void menuInicial() {
 		System.out.println("Qual setor você deseja utilizar?" + "\n(0) - Sair" + "\n(1) - Balconista\n" + "(2) - Caixa\n"
-				+ "(3) - Cliente\n" + "(4) - Produto\n");
+				+ "(3) - Cliente\n" + "(4) - Medicamento\n");
 	}
 
 	public void menuBalconista() {
@@ -132,11 +133,11 @@ public class Balconista extends Pessoa {
 
 		Balconista balconista = new Balconista();
 
-		System.out.println("Digite o nome do Balconista: ");
+		System.out.println("Digite o nome completo do Balconista: ");
 		balconista.setNome(scanner.nextLine());
 
-		System.out.println("Digite o sobrenome do Balconista: ");
-		balconista.setSobrenome(scanner1.nextLine());
+		/*System.out.println("Digite o sobrenome do Balconista: ");
+		balconista.setSobrenome(scanner1.nextLine());*/
 
 		System.out.println("Digite o rg do Balconista: ");
 		balconista.setRg(scanner.nextLine());
@@ -147,8 +148,8 @@ public class Balconista extends Pessoa {
 		System.out.println("Digite os digitos do Cpf do Balconista: ");
 		balconista.setDigitoCpf(scanner.nextInt());
 
-		System.out.println("Digite o endereço do Balconista:");
-		balconista.setEndereco(scanner.nextLine());
+		/*System.out.println("Digite o endereço do Balconista:");
+		balconista.setEndereco(scanner.nextLine());*/
 
 		System.out.println("Digite o telefone do Balconista:");
 		balconista.setTelefone(scanner1.nextLine());
@@ -181,10 +182,10 @@ public class Balconista extends Pessoa {
 			for (int b = 0; b < listaDeBalconistas.size(); b++) {
 				Balconista t = listaDeBalconistas.get(b);
 				System.out.println("\nCadastro de número:" + (b + 1));
-				System.out.println("\nNome: " + listaDeBalconistas.get(b).getNome() + " "
-						+ listaDeBalconistas.get(b).getSobrenome());
-				System.out.println("\nRG: " + t.getRg() + " Cpf: " + t.getDigitoCpf() + "-" + t.getCpf());
-				System.out.println("\nTelefone: " + t.getTelefone() + " Endereco:" + t.getEndereco());
+				System.out.println("\nNome: " + t.getNome()/*+ " "
+						+ listaDeBalconistas.get(b).getSobrenome()*/);
+				System.out.println("\nRG: " + t.getRg() + " Cpf: " + t.getDigitoCpf() + "-" + t.getCpf.substring(1,3) + "." + t.getCpf.substring(4,6) + "." + t.getCpf.substring(7,9));
+				System.out.println("\nTelefone: " + t.getTelefone()/* + " Endereco:" + t.getEndereco()*/);
 				System.out.println("\nSenha: " + t.getSenha() + " Senha Farmacia Popular: "
 						+ t.getSenhaFarmaciaPopular());
 				System.out.println("\nCódigo do Balconista: " + t.getCodigo());
@@ -195,10 +196,7 @@ public class Balconista extends Pessoa {
 			System.out.println("Fim da lista de cadastro.\n");
 		}
 
-		/*
-		 * System.out.println("Deseja realizar outra operacao para balconista?" + "\n(0) - Não" + "\n(1) - Sim");
-		 * repeteBalconista = scanner.nextInt();
-		 */
+		
 	}
 
 	public void excluirBalconista(ArrayList<Balconista> listaDeBalconistas) {
@@ -223,10 +221,7 @@ public class Balconista extends Pessoa {
 				this.setCodigoExclusao(0);
 			}
 		}
-		/*
-		 * System.out.println("Deseja realizar outra operacao para balconista?" + "\n(0) - Não" + "\n(1) - Sim");
-		 * repeteBalconista = scanner.nextInt();
-		 */
+		
 	}
 
 	private void setSalario(double salario) {
@@ -326,21 +321,6 @@ public class Balconista extends Pessoa {
 		this.scanner = scanner;
 	}
 
-	public boolean isExecutar() {
-		return executar;
-	}
-
-	public void setExecutar(boolean executar) {
-		this.executar = executar;
-	}
-
-	public String getRecomecar() {
-		return recomecar;
-	}
-
-	public void setRecomecar(String recomecar) {
-		this.recomecar = recomecar;
-	}
 
 	public int getOperacao() {
 		return operacao;

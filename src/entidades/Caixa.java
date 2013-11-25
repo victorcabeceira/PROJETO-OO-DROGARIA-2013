@@ -1,5 +1,8 @@
 package entidades;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import entidades.Cliente;
 import entidades.Balconista;
 
@@ -12,6 +15,16 @@ public class Caixa extends Pessoa{
 	private Balconista balconista;							
 	protected Cliente[] clientes;
 	protected Balconista[] funcionario;
+	private int codigo;
+	
+	//COnsole
+	Caixa[] caixa = {};
+	Scanner scanner = new Scanner(System.in);
+	Scanner scanner1 = new Scanner(System.in);
+	int operacao = 0;
+	int operacaoCaixa = 0, repeteCadastroCaixa = 0, repeteCaixa = 0;
+	int codigoExclusao = 0;
+	int confirmacaoExclusaoCaixa = 0;
 	
 	public Caixa() {
 		this.saldoAtual = 0;
@@ -23,13 +36,14 @@ public class Caixa extends Pessoa{
 
 	public Caixa(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa,
 			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa,
-			int tipoTransacao, float valorTransacao, String dataTransacao, String descricaoTransacao){
+			int tipoTransacao, float valorTransacao, String dataTransacao, String descricaoTransacao,int codigo){
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
 		if (tipo == 0 || tipo == 1) {
 			this.tipo = tipoTransacao;
 			this.valor = valorTransacao;
 			this.data = dataTransacao;
 			this.descricao = descricaoTransacao;
+			this.codigo = codigo;
 		}
 		else {
 			System.out.println("Caixa nao cadastrado.");
@@ -79,6 +93,107 @@ public class Caixa extends Pessoa{
 	public double calcularSalario(){
 		this.setSalario(715);
 		return 715;
+	}
+	
+	
+	public void menuCaixa() {
+		System.out.println("\nInsira o que deseja fazer de acordo com as opções seguintes:" + "\n(0) - Sair\n"
+				+ "(1) - Cadastrar novo Caixa\n" + "(2) - Listar Caixas\n"
+				+ "(3) - Excluir Caixa\n");
+	}
+	
+	public void cadastrarCaixa(ArrayList<Caixa> listaDeCaixas) {
+
+		Caixa caixa = new Caixa();
+
+		System.out.println("Digite o nome completo do Caixa: ");
+		caixa.setNome(scanner.nextLine());
+
+		/*System.out.println("Digite o sobrenome do Caixa: ");
+		caixa.setSobrenome(scanner1.nextLine());*/
+
+		System.out.println("Digite o rg do Caixa: ");
+		caixa.setRg(scanner.nextLine());
+
+		System.out.println("Digite o cpf do Caixa: ");
+		caixa.setCpf(scanner.nextLine());
+
+		System.out.println("Digite os digitos do Cpf do Caixa: ");
+		caixa.setDigitoCpf(scanner.nextInt());
+
+		/*System.out.println("Digite o endereço do Caixa:");
+		caixa.setEndereco(scanner.nextLine());*/
+
+		System.out.println("Digite o telefone do Caixa:");
+		caixa.setTelefone(scanner1.nextLine());
+
+		/*System.out.println("Digite o tipo de operacao do Caixa:");
+		caixa.setTipo(scanner.nextInt());
+
+		System.out.println("Digite o valor de vendas do Caixa:");
+		caixa.setValor(scanner.nextInt());
+
+		System.out.println("Data de vendas do Caixa:");
+		caixa.setData(scanner.nextLine());
+
+		System.out.println("Digite uma descrição caso necessário: ");
+		caixa.setDescricao(scanner.nextLine());*/
+		
+		System.out.println("Digite o código do Caixa:");
+		caixa.setCodigo(scanner.nextInt());
+		listaDeCaixas.add(caixa);
+
+	}
+	
+	public void listarCaixas(ArrayList<Caixa> listaDeCaixas) {
+		if (listaDeCaixas.size() == 0) {
+			System.out.println("Cadastro em branco!\n");
+		}
+		else {
+			System.out.println("\nLista de cadastros de Balconistas\n");
+			for (int b = 0; b < listaDeCaixas.size(); b++) {
+				Caixa t = listaDeCaixas.get(b);
+				System.out.println("\nCadastro de número:" + (b + 1));
+				System.out.println("\nNome: " + listaDeCaixas.get(b).getNome()/*+ " "
+						+ listaDeBalconistas.get(b).getSobrenome()*/);
+				System.out.println("\nRG: " + t.getRg() + " Cpf: " + t.getDigitoCpf() + "-" + t.getCpf());
+				System.out.println("\nTelefone: " + t.getTelefone()/* + " Endereco:" + t.getEndereco()*/);
+				/*System.out.println("\nTipo: " + t.getTipo() + " Valor de Vendas: "
+						+ t.getValor());*/
+				System.out.println("\nCódigo do Caixa: " + t.getCodigo());
+				/*System.out.println("\nData: " + t.getData());
+				System.out.println("\nDescrição: " + t.getDescricao());*/
+				System.out.println("\nSalário: " + this.calcularSalario());
+			}
+			System.out.println("Fim da lista de cadastro.\n");
+		}
+
+		
+	}
+	
+	public void excluirCaixa(ArrayList<Caixa> listaDeCaixas) {
+
+		if (listaDeCaixas.size() == 0) {
+			System.out.println("Cadastro em branco!\n");
+		}
+		else {
+			System.out.println("Digite o numero do cadastro do Caixa que deseja excluir: ");
+			this.setCodigoExclusao(scanner.nextInt());
+			System.out.println("Você deseja realmente excluir o cadastro de numero: " + this.codigoExclusao + "?"
+					+ "\n(0) - Não" + "\n(1) - Sim");
+			this.setConfirmacaoExclusaoCaixa(scanner.nextInt());
+			if (confirmacaoExclusaoCaixa == 1) {
+				this.setCodigoExclusao(codigoExclusao - 1);
+				listaDeCaixas.remove(codigoExclusao);
+
+				System.out.println("A lista foi alterada");
+				listarCaixas(listaDeCaixas);
+			}
+			else if (confirmacaoExclusaoCaixa == 0) {
+				this.setCodigoExclusao(0);
+			}
+		}
+		
 	}
 	
 	
@@ -155,5 +270,89 @@ public class Caixa extends Pessoa{
 
 	public Balconista getBalconista() {
 		return balconista;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public Caixa[] getCaixa() {
+		return caixa;
+	}
+
+	public void setCaixa(Caixa[] caixa) {
+		this.caixa = caixa;
+	}
+
+	public Scanner getScanner() {
+		return scanner;
+	}
+
+	public void setScanner(Scanner scanner) {
+		this.scanner = scanner;
+	}
+
+	public Scanner getScanner1() {
+		return scanner1;
+	}
+
+	public void setScanner1(Scanner scanner1) {
+		this.scanner1 = scanner1;
+	}
+
+	public int getOperacao() {
+		return operacao;
+	}
+
+	public void setOperacao(int operacao) {
+		this.operacao = operacao;
+	}
+
+	public int getOperacaoCaixa() {
+		return operacaoCaixa;
+	}
+
+	public void setOperacaoCaixa(int operacaoCaixa) {
+		this.operacaoCaixa = operacaoCaixa;
+	}
+
+	public int getRepeteCadastroCaixa() {
+		return repeteCadastroCaixa;
+	}
+
+	public void setRepeteCadastroCaixa(int repeteCadastroCaixa) {
+		this.repeteCadastroCaixa = repeteCadastroCaixa;
+	}
+
+	public int getRepeteCaixa() {
+		return repeteCaixa;
+	}
+
+	public void setRepeteCaixa(int repeteCaixa) {
+		this.repeteCaixa = repeteCaixa;
+	}
+
+	public int getCodigoExclusao() {
+		return codigoExclusao;
+	}
+
+	public void setCodigoExclusao(int codigoExclusao) {
+		this.codigoExclusao = codigoExclusao;
+	}
+
+	public int getConfirmacaoExclusaoCaixa() {
+		return confirmacaoExclusaoCaixa;
+	}
+
+	public void setConfirmacaoExclusaoCaixa(int confirmacaoExclusaoCaixa) {
+		this.confirmacaoExclusaoCaixa = confirmacaoExclusaoCaixa;
+	}
+
+	public void setBalconista(Balconista balconista) {
+		this.balconista = balconista;
 	}
 }
