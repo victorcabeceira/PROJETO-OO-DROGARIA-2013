@@ -6,18 +6,18 @@ import java.util.Scanner;
 import entidades.Cliente;
 import entidades.Balconista;
 
-public class Caixa extends Pessoa{
+public class Caixa extends Pessoa {
 	private float saldoAtual = 0;
 	private int tipo; // 0-Receita ou 1-Despesa
 	private float valor;
 	private String data;
 	private String descricao; // Informacoes
-	private Balconista balconista;							
+	private Balconista balconista;
 	protected Cliente[] clientes;
 	protected Balconista[] funcionario;
 	private int codigo;
-	
-	//COnsole
+
+	// COnsole
 	Caixa[] caixa = {};
 	Scanner scanner = new Scanner(System.in);
 	Scanner scanner1 = new Scanner(System.in);
@@ -25,18 +25,14 @@ public class Caixa extends Pessoa{
 	int operacaoCaixa = 0, repeteCadastroCaixa = 0, repeteCaixa = 0;
 	int codigoExclusao = 0;
 	int confirmacaoExclusaoCaixa = 0;
-	
+
 	public Caixa() {
-		this.saldoAtual = 0;
-		this.tipo = 0;
-		this.valor = 0;
-		this.data = "Default";
-		this.descricao = "Default";
+		super();
 	}
 
-	public Caixa(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa,
-			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa,
-			int tipoTransacao, float valorTransacao, String dataTransacao, String descricaoTransacao,int codigo){
+	public Caixa(String rgPessoa, String cpfPessoa, int digitoCpfPessoa, String nomePessoa,
+			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa, int tipoTransacao,
+			float valorTransacao, String dataTransacao, String descricaoTransacao, int codigo) {
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
 		if (tipo == 0 || tipo == 1) {
 			this.tipo = tipoTransacao;
@@ -47,41 +43,38 @@ public class Caixa extends Pessoa{
 		}
 		else {
 			System.out.println("Caixa nao cadastrado.");
-			
-			
+
 		}
-		//Composicao - so existe um Caixa se ja existir um balconista!
+		// Composicao - so existe um Caixa se ja existir um balconista!
 		Balconista balconista = new Balconista(this);
-		this.balconista=balconista;
-			
-		
-		
+		this.balconista = balconista;
+
 		System.out.println("Verificacao de um funcionário para atendê-lo.");
-		Balconista.setStatusBalconista(true); //Utilizacao de static para dependência
+		Balconista.setStatusBalconista(true); // Utilizacao de static para dependência
 	}
-	
-	//Composicao - Criacao de um novo caixa a partir de um balconista
-	public void criarBalconista(){
+
+	public Caixa(String rgPessoa, String cpfPessoa, int digitoCpfPessoa, String nomePessoa,
+			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa, int codigo) {
+		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
+		this.codigo = codigo;
+	}
+
+	// Composicao - Criacao de um novo caixa a partir de um balconista
+	public void criarBalconista() {
 		Balconista balconista = new Balconista(this);
-		this.balconista=balconista;
+		this.balconista = balconista;
 	}
-	
-	
-	//Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)
-		public double confirmacaoPagamento() 
-		{
-			if(this.confirmacaoPagamento == 1)
-				{
-				return 1; //Confirma que o pagamento foi aceito.
-				}
-			else
-				{
-				return 0; //Confirma que o pagamento não foi aceito	
-				}
+
+	// Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)
+	public double confirmacaoPagamento() {
+		if (this.confirmacaoPagamento == 1) {
+			return 1; // Confirma que o pagamento foi aceito.
 		}
-		
-	
-	
+		else {
+			return 0; // Confirma que o pagamento não foi aceito
+		}
+	}
+
 	// Método depositar
 	public void depositar(float valor) {
 		System.out.println("Valor do saldo atual: " + saldoAtual);
@@ -89,88 +82,82 @@ public class Caixa extends Pessoa{
 		System.out.println("Valor após o depósito: " + saldoAtual);
 	}
 
-	
-	public double calcularSalario(){
+	public double calcularSalario() {
 		this.setSalario(715);
 		return 715;
 	}
-	
-	
+
 	public void menuCaixa() {
 		System.out.println("\nInsira o que deseja fazer de acordo com as opções seguintes:" + "\n(0) - Sair\n"
-				+ "(1) - Cadastrar novo Caixa\n" + "(2) - Listar Caixas\n"
-				+ "(3) - Excluir Caixa\n");
+				+ "(1) - Cadastrar novo Caixa\n" + "(2) - Listar Caixas\n" + "(3) - Excluir Caixa\n");
 	}
-	
+
 	public void cadastrarCaixa(ArrayList<Caixa> listaDeCaixas) {
 
-		Caixa caixa = new Caixa();
-
-		System.out.println("Digite o nome completo do Caixa: ");
-		caixa.setNome(scanner.nextLine());
-
-		/*System.out.println("Digite o sobrenome do Caixa: ");
-		caixa.setSobrenome(scanner1.nextLine());*/
-
 		System.out.println("Digite o rg do Caixa: ");
-		caixa.setRg(scanner.nextLine());
+		String rgPessoa = Complementar.readString();
 
 		System.out.println("Digite o cpf do Caixa: ");
-		caixa.setCpf(scanner.nextLine());
+		String cpfPessoa = Complementar.readString();
 
-		System.out.println("Digite os digitos do Cpf do Caixa: ");
-		caixa.setDigitoCpf(scanner.nextInt());
+		System.out.println("Digite o digito do cpf do Caixa: ");
+		int digitoCpfPessoa = Complementar.readInt();
 
-		/*System.out.println("Digite o endereço do Caixa:");
-		caixa.setEndereco(scanner.nextLine());*/
+		System.out.println("Digite o nome do Caixa: ");
+		String nomePessoa = Complementar.readString();
+
+		System.out.println("Digite o sobrenome completo do Caixa: ");
+		String sobrenomePessoa = Complementar.readString();
+
+		System.out.println("Digite o endereco do Caixa: ");
+		String enderecoPessoa = Complementar.readString();
 
 		System.out.println("Digite o telefone do Caixa:");
-		caixa.setTelefone(scanner1.nextLine());
+		String telefonePessoa = Complementar.readString();
 
-		/*System.out.println("Digite o tipo de operacao do Caixa:");
-		caixa.setTipo(scanner.nextInt());
-
-		System.out.println("Digite o valor de vendas do Caixa:");
-		caixa.setValor(scanner.nextInt());
-
-		System.out.println("Data de vendas do Caixa:");
-		caixa.setData(scanner.nextLine());
-
-		System.out.println("Digite uma descrição caso necessário: ");
-		caixa.setDescricao(scanner.nextLine());*/
-		
 		System.out.println("Digite o código do Caixa:");
-		caixa.setCodigo(scanner.nextInt());
+		int codigo = Complementar.readInt();
+
+		Caixa caixa = new Caixa(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa,
+				telefonePessoa, codigo);
+
 		listaDeCaixas.add(caixa);
 
+		System.out.println("Caixa cadastrado com sucesso!");
+
 	}
-	
+
 	public void listarCaixas(ArrayList<Caixa> listaDeCaixas) {
 		if (listaDeCaixas.size() == 0) {
 			System.out.println("Cadastro em branco!\n");
 		}
 		else {
-			System.out.println("\nLista de cadastros de Balconistas\n");
+			System.out.println("\nLista de cadastros de Caixas\n");
 			for (int b = 0; b < listaDeCaixas.size(); b++) {
 				Caixa t = listaDeCaixas.get(b);
 				System.out.println("\nCadastro de número:" + (b + 1));
-				System.out.println("\nNome: " + listaDeCaixas.get(b).getNome()/*+ " "
-						+ listaDeBalconistas.get(b).getSobrenome()*/);
-				System.out.println("\nRG: " + t.getRg() + " Cpf: " + t.getDigitoCpf() + "-" + t.getCpf());
-				System.out.println("\nTelefone: " + t.getTelefone()/* + " Endereco:" + t.getEndereco()*/);
-				/*System.out.println("\nTipo: " + t.getTipo() + " Valor de Vendas: "
-						+ t.getValor());*/
+
+				System.out.println("\nNome: " + listaDeCaixas.get(b).getNome() + " "
+						+ listaDeCaixas.get(b).getSobrenome());
+
+				System.out.println("\nRG: " + t.getRg().substring(0, 2) + "-"
+						+ t.getRg().substring(2, t.getRg().length()));
+				
+				System.out.println("Cpf: " + t.getDigitoCpf() + "-" + t.getCpf().substring(0, 3) + "."
+						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9));
+				
+				System.out.println("\nTelefone: (" + t.getTelefone().substring(0, 2) + ") "
+						+ t.getTelefone().substring(2, 6) + "-" + t.getTelefone().substring(6, 10));
+
 				System.out.println("\nCódigo do Caixa: " + t.getCodigo());
-				/*System.out.println("\nData: " + t.getData());
-				System.out.println("\nDescrição: " + t.getDescricao());*/
-				System.out.println("\nSalário: " + this.calcularSalario());
+
+				System.out.println("\nSalário: " + t.calcularSalario());
 			}
-			System.out.println("Fim da lista de cadastro.\n");
+			System.out.println("Fim da lista de cadastro de Caixas.\n");
 		}
 
-		
 	}
-	
+
 	public void excluirCaixa(ArrayList<Caixa> listaDeCaixas) {
 
 		if (listaDeCaixas.size() == 0) {
@@ -193,33 +180,31 @@ public class Caixa extends Pessoa{
 				this.setCodigoExclusao(0);
 			}
 		}
-		
+
 	}
-	
-	
+
 	// Especificando métodos get and set.
-	private void setSalario(double i) {	
+	private void setSalario(double i) {
 	}
 
 	public Balconista[] getFuncionario() {
-			return funcionario;
+		return funcionario;
 	}
-		  
-	public Cliente[] getCliente () {
-		   return clientes;
+
+	public Cliente[] getCliente() {
+		return clientes;
 	}
-		  
-	public void setClientes(Cliente [] clientes){
-		    this.clientes = clientes;
+
+	public void setClientes(Cliente[] clientes) {
+		this.clientes = clientes;
 	}
-		  
-	public void listarClientes () {
-		    for (int x=0; x<(clientes.length); x+=1)
-		    {
-		      System.out.println(("Clientes: ["+ x +"]: " + clientes[x]));
-		    }
+
+	public void listarClientes() {
+		for (int x = 0; x < (clientes.length); x += 1) {
+			System.out.println(("Clientes: [" + x + "]: " + clientes[x]));
+		}
 	}
-	
+
 	public int getTipo() {
 		return tipo;
 	}

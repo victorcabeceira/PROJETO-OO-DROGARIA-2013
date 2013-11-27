@@ -17,6 +17,7 @@ public class Cliente extends Pessoa implements Recomendavel {
 	private int codigoExclusao = 0, confirmacaoExclusaoCliente = 0;
 
 	public Cliente() {
+		super();
 	}
 
 	// Construtor só para herança
@@ -70,37 +71,36 @@ public class Cliente extends Pessoa implements Recomendavel {
 
 	public void cadastrarCliente(ArrayList<Cliente> listaDeClientes) {
 
-		Cliente cliente = new Cliente();
-
-		System.out.println("Digite o nome completo do Cliente: ");
-		cliente.setNome(scanner.nextLine());
-
-		/*
-		 * System.out.println("Digite o sobrenome do Cliente: ");
-		 * cliente.setSobrenome(scanner.nextLine());
-		 */
-
 		System.out.println("Digite o rg do Cliente: ");
-		cliente.setRg(scanner.nextLine());
+		String rgPessoa = Complementar.readString();
 
 		System.out.println("Digite o cpf do Cliente: ");
-		cliente.setCpf(scanner.nextLine());
+		String cpfPessoa = Complementar.readString();
 
-		System.out.println("Digite os digitos do Cpf do Cliente: ");
-		cliente.setDigitoCpf(scanner.nextInt());
+		System.out.println("Digite o digito do cpf do Cliente: ");
+		int digitoCpfPessoa = Complementar.readInt();
 
-		/*
-		 * System.out.println("Digite o endereço do Cliente:");
-		 * cliente.setEndereco(scanner.nextLine());
-		 */
+		System.out.println("Digite o nome do Cliente: ");
+		String nomePessoa = Complementar.readString();
+
+		System.out.println("Digite o sobrenome completo do Cliente: ");
+		String sobrenomePessoa = Complementar.readString();
+
+		System.out.println("Digite o endereco do Cliente: ");
+		String enderecoPessoa = Complementar.readString();
 
 		System.out.println("Digite o telefone do Cliente:");
-		cliente.setTelefone(scanner.nextLine());
+		String telefonePessoa = Complementar.readString();
 
 		System.out.println("Digite o email do Cliente");
-		cliente.setEmail(scanner.nextLine());
+		String emailCliente = Complementar.readString();
+
+		Cliente cliente = new Cliente(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa,
+				enderecoPessoa, telefonePessoa, emailCliente);
 
 		listaDeClientes.add(cliente);
+
+		System.out.println("Cliente cadastrado com sucesso!");
 	}
 
 	public void listarClientes(ArrayList<Cliente> listaDeClientes) {
@@ -112,12 +112,21 @@ public class Cliente extends Pessoa implements Recomendavel {
 			for (int b = 0; b < listaDeClientes.size(); b++) {
 				Cliente t = listaDeClientes.get(b);
 				System.out.println("\nCadastro de número:" + (b + 1));
-				System.out.println("\nNome: " + t.getNome()/* + " "+ t.getSobrenome() */);
-				System.out.println("\nRG: " + t.getRg() + " Cpf: " + t.getDigitoCpf() + "-" + t.getCpf());
-				System.out.println("\nTelefone: " + t.getTelefone()/* + " Endereco:" + t.getEndereco() */);
+				
+				System.out.println("\nNome: " + t.getNome() + " " + t.getSobrenome());
+				
+				System.out.println("\nRG: " + t.getRg().substring(0, 2) + "-"
+						+ t.getRg().substring(2, t.getRg().length()));
+				
+				System.out.println("Cpf: " + t.getDigitoCpf() + "-" + t.getCpf().substring(0, 3) + "."
+						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9));
+				
+				System.out.println("\nTelefone: (" + t.getTelefone().substring(0, 2) + ") "
+						+ t.getTelefone().substring(2, 6) + "-" + t.getTelefone().substring(6, 10));
+				
 				System.out.println("\nEmail: " + t.getEmail());
 			}
-			System.out.println("Fim da lista de cadastro.\n");
+			System.out.println("Fim da lista de cadastro de Clientes.\n");
 		}
 
 	}

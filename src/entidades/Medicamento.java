@@ -17,6 +17,7 @@ public class Medicamento extends Produto {
 	private int codigoExclusao = 0, confirmacaoExclusaoMedicamento = 0;
 
 	public Medicamento() {
+		super();
 	}
 
 	public Medicamento(String nomeProduto, String fabricanteProduto, String recomendacaoProduto,
@@ -45,27 +46,31 @@ public class Medicamento extends Produto {
 
 	public void cadastrarMedicamento(ArrayList<Medicamento> listaDeMedicamentos) {
 
-		Medicamento medicamento = new Medicamento();
 
 		System.out.println("Digite o nome do Medicamento: ");
-		medicamento.setNome(scanner.nextLine());
+		String nomeProduto = Complementar.readString();
 
 		System.out.println("Digite o fabricante do Medicamento: ");
-		medicamento.setFabricante(scanner.nextLine());
+		String fabricanteProduto = Complementar.readString();
 
 		System.out.println("Digite a recomendação de uso deste Medicamento: ");
-		medicamento.setRecomendacao(scanner.nextLine());
+		String recomendacaoProduto = Complementar.readString();
 
 		System.out.println("Digite a validade do Medicamento: ");
-		medicamento.setValidade(scanner.nextLine());
+		String validadeProduto = Complementar.readString();
 
 		System.out.println("Digite o tipo do Medicamento: ");
-		medicamento.setTipo(scanner.nextLine());
+		String tipoMedicamento = Complementar.readString();
 
 		System.out.println("Digite posologia recomendada do Medicamento: ");
-		medicamento.setPosologia(scanner.nextLine());
+		String posologiaMedicamento = Complementar.readString();
 
+		Medicamento medicamento = new Medicamento(nomeProduto, fabricanteProduto, recomendacaoProduto,
+				validadeProduto, tipoMedicamento, posologiaMedicamento);
+		
 		listaDeMedicamentos.add(medicamento);
+		
+		System.out.println("Medicamento cadastrado com sucesso!");
 	}
 
 	public void listarMedicamentos(ArrayList<Medicamento> listaDeMedicamentos) {
@@ -80,7 +85,7 @@ public class Medicamento extends Produto {
 				System.out.println("\nNome: " + t.getNome());
 				System.out.println("\nFabricante: " + t.getFabricante());
 				System.out.println("\nRecomendação: " + t.getRecomendacao());
-				System.out.println("\nValidade: " + t.getValidade());
+				System.out.println("\nValidade: " + t.getValidade().substring(0,2) + "/" + t.getValidade().substring(2,4) + "/" + t.getValidade().substring(4,8));
 				System.out.println("\nTipo: " + t.getTipo());
 				System.out.println("\nPosologia: " + t.getPosologia());
 			}

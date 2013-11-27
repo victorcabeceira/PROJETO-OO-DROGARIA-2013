@@ -1,8 +1,7 @@
 package entidades;
 
-public class Pessoa extends Administrativo{
+public class Pessoa extends Administrativo {
 
-	
 	protected String rg;
 	protected String cpf;
 	protected int digitoCpf;
@@ -10,87 +9,83 @@ public class Pessoa extends Administrativo{
 	protected String sobrenome;
 	protected String endereco;
 	protected String telefone;
-	protected static double confirmacaoPagamento;//Polimorfismo
-	protected double salario;//Classe Abstrata
-	
-	public Pessoa() {}
+	protected static double confirmacaoPagamento;// Polimorfismo
+	protected double salario;// Classe Abstrata
 
-	//Documentos
-	public Pessoa (String rgPessoa,String cpfPessoa, int digitoCpfPessoa){
-		this.rg=rgPessoa;
-		this.cpf=cpfPessoa;
-		this.digitoCpf=digitoCpfPessoa;
+	public Pessoa() {
 	}
-	//Nomes
-	public Pessoa (String nomePessoa, String sobrenomePessoa, String enderecoPessoa, String telefonePessoa){
-		this.nome=nomePessoa;
-		this.sobrenome=sobrenomePessoa;
-		this.endereco=enderecoPessoa;
-		this.telefone=telefonePessoa;
+
+	// Documentos
+	public Pessoa(String rgPessoa, String cpfPessoa, int digitoCpfPessoa) {
+		this.rg = rgPessoa;
+		this.cpf = cpfPessoa;
+		this.digitoCpf = digitoCpfPessoa;
 	}
-	//Todos os parametros
-	public Pessoa (String rgPessoa,String cpfPessoa, int digitoCpfPessoa,
-		String nomePessoa, String sobrenomePessoa, String enderecoPessoa, String telefonePessoa){
-		this.rg=rgPessoa;
-		this.cpf=cpfPessoa;
-		this.digitoCpf=digitoCpfPessoa;
-		this.nome=nomePessoa;
-		this.sobrenome=sobrenomePessoa;
-		this.endereco=enderecoPessoa;
-		this.telefone=telefonePessoa;
+
+	// Nomes
+	public Pessoa(String nomePessoa, String sobrenomePessoa, String enderecoPessoa, String telefonePessoa) {
+		this.nome = nomePessoa;
+		this.sobrenome = sobrenomePessoa;
+		this.endereco = enderecoPessoa;
+		this.telefone = telefonePessoa;
 	}
-	
-	//Validacao digito
-	private boolean validarCpf(int digitoCpfPessoa)
-	{
+
+	// Todos os parametros
+	public Pessoa(String rgPessoa, String cpfPessoa, int digitoCpfPessoa, String nomePessoa,
+			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa) {
+		this.rg = rgPessoa;
+		this.cpf = cpfPessoa;
+		this.digitoCpf = digitoCpfPessoa;
+		this.nome = nomePessoa;
+		this.sobrenome = sobrenomePessoa;
+		this.endereco = enderecoPessoa;
+		this.telefone = telefonePessoa;
+	}
+
+	// Validacao digito
+	private boolean validarCpf(int digitoCpfPessoa) {
 		boolean validar1;
-		if(digitoCpfPessoa > 99)
-		{
+		if (digitoCpfPessoa > 99) {
 			validar1 = false;
 		}
-		else
-		{
+		else {
 			validar1 = true;
 		}
-		
-			return validar1;
+
+		return validar1;
 	}
-	
-	
-	public void cadastrarPessoa(String rgPessoa,String cpfPessoa, int digitoCpfPessoa,String nomePessoa, String sobrenomePessoa, String enderecoPessoa, String telefonePessoa){
-		//Atributos
-		this.nome=nomePessoa;
-		this.sobrenome=sobrenomePessoa;
-		this.endereco=enderecoPessoa;
-		this.telefone=telefonePessoa;
-		this.rg=rgPessoa;
-		this.cpf=cpfPessoa;
-		this.digitoCpf=digitoCpfPessoa;
-		
+
+	public void cadastrarPessoa(String rgPessoa, String cpfPessoa, int digitoCpfPessoa, String nomePessoa,
+			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa) {
+		// Atributos
+		this.nome = nomePessoa;
+		this.sobrenome = sobrenomePessoa;
+		this.endereco = enderecoPessoa;
+		this.telefone = telefonePessoa;
+		this.rg = rgPessoa;
+		this.cpf = cpfPessoa;
+		this.digitoCpf = digitoCpfPessoa;
+
 		boolean validacaoDigitoCpf = this.validarCpf(digitoCpfPessoa);
-		if(validacaoDigitoCpf == true)
-		{
+		if (validacaoDigitoCpf == true) {
 			System.out.println("Funcionário cadastrado com sucesso!");
 		}
-		else
-		{
+		else {
 			System.out.println("Funcionário não cadastrado!");
 		}
 	}
-	
-	public double confirmacaoPagamento() 
-	{
-			if(this.confirmacaoPagamento == 1)
-			{
-				return 1; //Confirma que o pagamento foi aceito.
-			}
-			else
-			{
-				return 0; //Confirma que o pagamento não foi aceito	
-			}
+
+	public double confirmacaoPagamento() {
+		if (this.confirmacaoPagamento == 1) {
+			return 1; // Confirma que o pagamento foi aceito.
+		}
+		else {
+			return 0; // Confirma que o pagamento não foi aceito
+		}
 	}
-	//Metodo de calculo do salario do funcionario
-	public double calcularSalario(){
+
+	// Metodo de calculo do salario do funcionario
+	public double calcularSalario() {
 		return this.salario;
 	}
 
@@ -150,6 +145,4 @@ public class Pessoa extends Administrativo{
 		this.telefone = telefone;
 	}
 
-	
-	
 }

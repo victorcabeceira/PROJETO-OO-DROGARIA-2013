@@ -2,7 +2,7 @@ package entidades;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import entidades.Saida;
+import entidades.Complementar;
 
 public class Apresentacao {
 
@@ -15,6 +15,7 @@ public class Apresentacao {
 	 */
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+
 		ArrayList<Balconista> listaDeBalconistas = new ArrayList<Balconista>();
 		ArrayList<Caixa> listaDeCaixas = new ArrayList<Caixa>();
 		ArrayList<Cliente> listaDeClientes = new ArrayList<Cliente>();
@@ -25,13 +26,13 @@ public class Apresentacao {
 		Cliente cliente = new Cliente();
 		Medicamento medicamento = new Medicamento();
 
-		Saida saida = new Saida();
+		Complementar complementar = new Complementar();
 
-		int operacao = 0, confirmacaoSaidaInicio = 0;
-		int operacaoBalconista = 0, confirmacaoSaidaBalconista = 0;
-		int operacaoCaixa = 0, confirmacaoSaidaCaixa = 0;
-		int operacaoCliente = 0, confirmacaoSaidaCliente = 0;
-		int operacaoMedicamento = 0, confirmacaoSaidaMedicamento = 0;
+		int operacao = 0;
+		int operacaoBalconista = 0;
+		int operacaoCaixa = 0;
+		int operacaoCliente = 0;
+		int operacaoMedicamento = 0;
 
 		int estados = 0;
 
@@ -48,24 +49,15 @@ public class Apresentacao {
 		while (estados != 100) {
 			if (estados == 0) {
 
-				operacao = 0;
 				balconista.menuInicial();
 
 				operacao = scanner.nextInt();
 
-				assert ((operacao >= 0) && (operacao <= 4)) : "Numero invalido: " + operacao; // Se digitar numero errado, sai do programa
+				assert ((operacao >= 0) && (operacao <= 5)) : "Numero invalido: " + operacao; // Se digitar numero errado, sai do programa
 
 				// Amarração para sair
 				if (operacao == 0) {
-					saida.ConfirmacaoGeral();
-					confirmacaoSaidaInicio = scanner.nextInt();
-					if (confirmacaoSaidaInicio == 1) {
-						estados = 100;// Sai definitivamente
-					}
-					else if (confirmacaoSaidaInicio == 0) {
-						estados = 0;// Volta para o menu
-					}
-
+					estados = complementar.ConfirmacaoGeral2(estados);
 				}
 				else {
 					estados++;
@@ -82,17 +74,7 @@ public class Apresentacao {
 								balconista.menuBalconista();// Menu de balconistas
 								operacaoBalconista = scanner.nextInt();
 								if (operacaoBalconista == 0) {
-									System.out.println("Deseja realmente sair do menu de cadastro de Balconista?"
-											+ "\n(0) - Não" + "\n(1) - Sim");
-									confirmacaoSaidaBalconista = scanner.nextInt();
-									if (confirmacaoSaidaBalconista == 1) {
-										estados = 0;
-										System.out.println("Saindo do setor de cadastro de Balconista.");
-									}
-									else if (confirmacaoSaidaBalconista == 0) {
-										estados = 2;
-									}
-
+									estados = complementar.ConfirmacaoBalconista(estados);
 								}
 
 								else if (operacaoBalconista == 1) {
@@ -121,17 +103,7 @@ public class Apresentacao {
 								caixa.menuCaixa();// Menu caixa
 								operacaoCaixa = scanner.nextInt();
 								if (operacaoCaixa == 0) {
-									System.out.println("Deseja realmente sair do menu de cadastro de Caixa?"
-											+ "\n(0) - Não" + "\n(1) - Sim");
-									confirmacaoSaidaCaixa = scanner.nextInt();
-									if (confirmacaoSaidaCaixa == 1) {
-										estados = 0;
-										System.out.println("Saindo do setor de cadastro de Caixa.");
-									}
-									else if (confirmacaoSaidaCaixa == 0) {
-										estados = 3;
-									}
-
+									estados = complementar.ConfirmacaoCaixa(estados);
 								}
 
 								else if (operacaoCaixa == 1) {
@@ -157,20 +129,10 @@ public class Apresentacao {
 							}
 							while (estados == 4) {
 
-								cliente.menuCliente();// Menu caixa
+								cliente.menuCliente();// Menu cliente
 								operacaoCliente = scanner.nextInt();
 								if (operacaoCliente == 0) {
-									System.out.println("Deseja realmente sair do menu de cadastro de Cliente?"
-											+ "\n(0) - Não" + "\n(1) - Sim");
-									confirmacaoSaidaCliente = scanner.nextInt();
-									if (confirmacaoSaidaCliente == 1) {
-										estados = 0;
-										System.out.println("Saindo do setor de cadastro de Cliente.");
-									}
-									else if (confirmacaoSaidaCliente == 0) {
-										estados = 4;
-									}
-
+									estados = complementar.ConfirmacaoCliente(estados);
 								}
 
 								else if (operacaoCliente == 1) {
@@ -200,17 +162,7 @@ public class Apresentacao {
 								medicamento.menuMedicamento();// Menu caixa
 								operacaoMedicamento = scanner.nextInt();
 								if (operacaoMedicamento == 0) {
-									System.out.println("Deseja realmente sair do menu de cadastro de Medicamento?"
-											+ "\n(0) - Não" + "\n(1) - Sim");
-									confirmacaoSaidaMedicamento = scanner.nextInt();
-									if (confirmacaoSaidaMedicamento == 1) {
-										estados = 0;
-										System.out.println("Saindo do setor de cadastro de Medicamento.");
-									}
-									else if (confirmacaoSaidaMedicamento == 0) {
-										estados = 5;
-									}
-
+									estados = complementar.ConfirmacaoMedicamento(estados);
 								}
 
 								else if (operacaoMedicamento == 1) {
@@ -230,6 +182,14 @@ public class Apresentacao {
 
 							}
 							break;
+
+						case 5:
+							if (operacao == 5) {
+								estados = 6;
+							}
+							while (estados == 6) {
+								estados = complementar.menuAjuda(estados);
+							}
 
 						default:
 
