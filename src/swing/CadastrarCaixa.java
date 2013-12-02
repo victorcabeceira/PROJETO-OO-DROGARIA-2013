@@ -19,7 +19,6 @@ import java.awt.Rectangle;
 
 public class CadastrarCaixa extends JFrame {
 
-	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtRg;
@@ -32,7 +31,7 @@ public class CadastrarCaixa extends JFrame {
 	private JTextField txtCodigo;
 	private JLabel label;
 	private JScrollPane scrollPane;
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -185,8 +184,8 @@ public class CadastrarCaixa extends JFrame {
 
 				textArea.setVisible(true);
 				scrollPane.setVisible(true);
-				textArea.setText("   Dados   " + "\nRg: " + txtRg.getText() + "\nCpf: " + txtCpf.getText()
-						+ txtDigito.getText() + "\nNome: " + txtNome.getText() + txtSobrenome.getText()
+				textArea.setText("   Dados   " + "\nRg: " + txtRg.getText() + "\nCpf: " + txtCpf.getText() + "-"
+						+ txtDigito.getText() + "\nNome: " + txtNome.getText() + " " + txtSobrenome.getText()
 						+ "\nEndereço: " + txtEndereco.getText() + "\nTelefone: " + txtTelefone.getText()
 						+ "\nCódigo: " + txtCodigo.getText());
 
@@ -195,7 +194,7 @@ public class CadastrarCaixa extends JFrame {
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastrar.setBounds(60, 238, 150, 20);
 		contentPane.add(btnCadastrar);
-		
+
 		JButton btnNewButton_1 = new JButton("< Voltar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

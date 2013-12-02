@@ -39,7 +39,6 @@ public class CadastrarBalconista extends JFrame {
 	private JLabel label;
 	private JScrollPane scrollPane;
 
-
 	/**
 	 * Launch the application.
 	 */
@@ -234,8 +233,8 @@ public class CadastrarBalconista extends JFrame {
 
 				textArea.setVisible(true);
 				scrollPane.setVisible(true);
-				textArea.setText("   Dados   " + "\nRg: " + txtRg.getText() + "\nCpf: " + txtCpf.getText()
-						+ txtDigito.getText() + "\nNome: " + txtNome.getText() + txtSobrenome.getText()
+				textArea.setText("   Dados   " + "\nRg: " + txtRg.getText() + "\nCpf: " + txtCpf.getText() + "-"
+						+ txtDigito.getText() + "\nNome: " + txtNome.getText() + " " + txtSobrenome.getText()
 						+ "\nEndereço: " + txtEndereco.getText() + "\nTelefone: " + txtTelefone.getText()
 						+ "\nSenha: " + txtSenha.getText() + "\nSenha F.P.: " + txtSenhaFP.getText()
 						+ "\nCódigo: " + txtCodigo.getText() + "\nComissao: " + txtComissao.getText()
@@ -246,7 +245,7 @@ public class CadastrarBalconista extends JFrame {
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastrar.setBounds(60, 238, 150, 20);
 		contentPane.add(btnCadastrar);
-		
+
 		JButton btnNewButton_1 = new JButton("< Voltar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

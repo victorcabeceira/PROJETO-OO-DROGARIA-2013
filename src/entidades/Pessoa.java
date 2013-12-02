@@ -1,4 +1,5 @@
 package entidades;
+
 //Super classe de balconista,cliente e caixa
 public class Pessoa extends Administrativo {
 

@@ -58,7 +58,7 @@ public class CadastrarCliente extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblTopo = new JLabel("Cadastro de Cliente");
 		lblTopo.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblTopo.setBounds(145, 5, 125, 14);
@@ -184,8 +184,8 @@ public class CadastrarCliente extends JFrame {
 
 				textArea.setVisible(true);
 				scrollPane.setVisible(true);
-				textArea.setText("   Dados   " + "\nRg: " + txtRg.getText() + "\nCpf: " + txtCpf.getText()
-						+ txtDigito.getText() + "\nNome: " + txtNome.getText() + txtSobrenome.getText()
+				textArea.setText("   Dados   " + "\nRg: " + txtRg.getText() + "\nCpf: " + txtCpf.getText() + "-"
+						+ txtDigito.getText() + "\nNome: " + txtNome.getText() + " " + txtSobrenome.getText()
 						+ "\nEndereço: " + txtEndereco.getText() + "\nTelefone: " + txtTelefone.getText()
 						+ "\nE-mail: " + txtEmail.getText());
 
@@ -194,7 +194,7 @@ public class CadastrarCliente extends JFrame {
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastrar.setBounds(60, 238, 150, 20);
 		contentPane.add(btnCadastrar);
-		
+
 		JButton btnNewButton_1 = new JButton("< Voltar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

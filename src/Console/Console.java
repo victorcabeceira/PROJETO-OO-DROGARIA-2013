@@ -23,8 +23,8 @@ public class Console {
 	public static void main(String[] args) {
 		scanner = new Scanner(System.in);
 
-		//Atributos
-		
+		// Atributos
+
 		ArrayList<Balconista> listaDeBalconistas = new ArrayList<Balconista>();
 		ArrayList<Caixa> listaDeCaixas = new ArrayList<Caixa>();
 		ArrayList<Cliente> listaDeClientes = new ArrayList<Cliente>();
@@ -168,7 +168,7 @@ public class Console {
 							}
 							while (estados == 5) {
 
-								medicamento.menuMedicamento();// Menu caixa
+								medicamento.menuMedicamento();// Menu Medicamento
 								operacaoMedicamento = scanner.nextInt();
 								if (operacaoMedicamento == 0) {
 									estados = complementar.ConfirmacaoMedicamento(estados);
@@ -199,7 +199,6 @@ public class Console {
 							while (estados == 6) {
 								estados = complementar.menuAjuda(estados);
 							}
-
 
 						}// Saindo do Switch principal
 					}// Saindo do if de estados = 1

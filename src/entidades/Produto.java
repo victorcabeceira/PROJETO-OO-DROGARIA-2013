@@ -1,19 +1,20 @@
 package entidades;
 
 public class Produto {
-	
+
 	protected String nome;
 	protected String fabricante;
-	protected String recomendacao; //uso adulto, infantil, todos os públicos etc
+	protected String recomendacao; // uso adulto, infantil, todos os públicos etc
 	protected String validade;
 
-	public Produto() {}
-	
-	public Produto(String nomeProduto, String fabricanteProduto, String recomendacaoProduto, String validadeProduto){
-	this.nome=nomeProduto;
-	this.fabricante=fabricanteProduto;
-	this.recomendacao=recomendacaoProduto;
-	this.validade=validadeProduto;
+	public Produto() {
+	}
+
+	public Produto(String nomeProduto, String fabricanteProduto, String recomendacaoProduto, String validadeProduto) {
+		this.nome = nomeProduto;
+		this.fabricante = fabricanteProduto;
+		this.recomendacao = recomendacaoProduto;
+		this.validade = validadeProduto;
 	}
 
 	public String getNome() {

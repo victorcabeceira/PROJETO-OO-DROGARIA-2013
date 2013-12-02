@@ -24,6 +24,9 @@ public class Cliente extends Pessoa implements Recomendavel {
 	public Cliente(String rgPessoa, String cpfPessoa, int digitoCpfPessoa, String nomePessoa,
 			String sobrenomePessoa, String enderecoPessoa, String telefonePessoa) {
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
+		System.out.println("Possui pelo menos um balconista para atendê-lo!!"); // ---> DEPENDENCIA
+		Balconista.setStatusBalconista(true);
+		// Por ser static, não é necessário instanciar.
 	}
 
 	public Cliente(String rgPessoa, String cpfPessoa, int digitoCpfPessoa, String nomePessoa,
@@ -31,9 +34,6 @@ public class Cliente extends Pessoa implements Recomendavel {
 		super(rgPessoa, cpfPessoa, digitoCpfPessoa, nomePessoa, sobrenomePessoa, enderecoPessoa, telefonePessoa);
 		this.email = emailCliente;
 
-		System.out.println("Possui pelo menos um balconista para atendê-lo!!"); // ---> DEPENDENCIA
-		Balconista.setStatusBalconista(true);
-		// Por ser static, não é necessário instanciar.
 	}
 
 	// Interface
@@ -112,18 +112,18 @@ public class Cliente extends Pessoa implements Recomendavel {
 			for (int b = 0; b < listaDeClientes.size(); b++) {
 				Cliente t = listaDeClientes.get(b);
 				System.out.println("\nCadastro de número:" + (b + 1));
-				
+
 				System.out.println("\nNome: " + t.getNome() + " " + t.getSobrenome());
-				
+
 				System.out.println("\nRG: " + t.getRg().substring(0, 2) + "-"
 						+ t.getRg().substring(2, t.getRg().length()));
-				
+
 				System.out.println("Cpf: " + t.getDigitoCpf() + "-" + t.getCpf().substring(0, 3) + "."
 						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9));
-				
+
 				System.out.println("\nTelefone: (" + t.getTelefone().substring(0, 2) + ") "
 						+ t.getTelefone().substring(2, 6) + "-" + t.getTelefone().substring(6, 10));
-				
+
 				System.out.println("\nEmail: " + t.getEmail());
 			}
 			System.out.println("Fim da lista de cadastro de Clientes.\n");

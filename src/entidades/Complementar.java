@@ -138,7 +138,7 @@ public class Complementar {
 			else if (confirmacaoSaidaAjuda == 0) {
 				estados = 6;
 			}
-			
+
 			break;
 		case 1:
 			System.out

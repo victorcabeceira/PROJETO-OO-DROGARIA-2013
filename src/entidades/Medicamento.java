@@ -46,7 +46,6 @@ public class Medicamento extends Produto {
 
 	public void cadastrarMedicamento(ArrayList<Medicamento> listaDeMedicamentos) {
 
-
 		System.out.println("Digite o nome do Medicamento: ");
 		String nomeProduto = Complementar.readString();
 
@@ -67,9 +66,9 @@ public class Medicamento extends Produto {
 
 		Medicamento medicamento = new Medicamento(nomeProduto, fabricanteProduto, recomendacaoProduto,
 				validadeProduto, tipoMedicamento, posologiaMedicamento);
-		
+
 		listaDeMedicamentos.add(medicamento);
-		
+
 		System.out.println("Medicamento cadastrado com sucesso!");
 	}
 
@@ -85,7 +84,8 @@ public class Medicamento extends Produto {
 				System.out.println("\nNome: " + t.getNome());
 				System.out.println("\nFabricante: " + t.getFabricante());
 				System.out.println("\nRecomendação: " + t.getRecomendacao());
-				System.out.println("\nValidade: " + t.getValidade().substring(0,2) + "/" + t.getValidade().substring(2,4) + "/" + t.getValidade().substring(4,8));
+				System.out.println("\nValidade: " + t.getValidade().substring(0, 2) + "/"
+						+ t.getValidade().substring(2, 4) + "/" + t.getValidade().substring(4, 8));
 				System.out.println("\nTipo: " + t.getTipo());
 				System.out.println("\nPosologia: " + t.getPosologia());
 			}

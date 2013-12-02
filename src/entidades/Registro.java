@@ -1,35 +1,32 @@
 package entidades;
 
-public class Registro{
+public class Registro {
 
 	protected String codigo;
 	protected Medicamento medicamento;
-	
-	//Construtor Vazio
-	public Registro() {}
 
-	//Construtor utilizando-se herança
-	public Registro(String codigoAnvisa) 
-	{
-		this.codigo=codigoAnvisa;
+	// Construtor Vazio
+	public Registro() {
 	}
 
-	//Agregação - Listagem e Adição
-	public void listarMedicamento()
-	{
-		System.out.println("O medicamento do registro "+this.codigo+" é:" + medicamento.nome);
+	// Construtor utilizando-se herança
+	public Registro(String codigoAnvisa) {
+		this.codigo = codigoAnvisa;
 	}
-	
-	public void adicionarMedicamento()
-	{
+
+	// Agregação - Listagem e Adição
+	public void listarMedicamento() {
+		System.out.println("O medicamento do registro " + this.codigo + " é:" + medicamento.nome);
+	}
+
+	public void adicionarMedicamento() {
 		Medicamento novoMedicamento = new Medicamento();
-		novoMedicamento=this.medicamento;
+		novoMedicamento = this.medicamento;
 		this.setMedicamento(novoMedicamento);
-	}//Fim Agregacao
-	
-	
-	//Getters & Setters
-	
+	}// Fim Agregacao
+
+	// Getters & Setters
+
 	public String getCodigo() {
 		return codigo;
 	}

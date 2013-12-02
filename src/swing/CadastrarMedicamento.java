@@ -17,7 +17,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
 
-
 public class CadastrarMedicamento extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -58,7 +57,7 @@ public class CadastrarMedicamento extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblTopo = new JLabel("Cadastro de Medicamento");
 		lblTopo.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblTopo.setBounds(145, 5, 150, 14);
@@ -75,11 +74,13 @@ public class CadastrarMedicamento extends JFrame {
 		lblCpf.setBounds(28, 55, 67, 14);
 		contentPane.add(lblCpf);
 
-		/*JLabel lblDigitoCpf = new JLabel("-");
-		lblDigitoCpf.setBounds(new Rectangle(0, 47, 0, 0));
-		lblDigitoCpf.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblDigitoCpf.setBounds(150, 55, 20, 16);
-		contentPane.add(lblDigitoCpf);*/
+		/*
+		 * JLabel lblDigitoCpf = new JLabel("-");
+		 * lblDigitoCpf.setBounds(new Rectangle(0, 47, 0, 0));
+		 * lblDigitoCpf.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		 * lblDigitoCpf.setBounds(150, 55, 20, 16);
+		 * contentPane.add(lblDigitoCpf);
+		 */
 
 		JLabel lblNome = new JLabel("Recomendação:");
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -174,13 +175,14 @@ public class CadastrarMedicamento extends JFrame {
 
 				label.setVisible(true);
 				label.setText(txtNome.getText() + " foi cadastrado com sucesso!");
-				
-				//Para não extrapolar o label
-				
+
+				// Para não extrapolar o label
+
 				textArea.setVisible(true);
 				scrollPane.setVisible(true);
-				textArea.setText("   Dados   " + "\nNome: " + txtNome.getText() + "\nFabricante: " + txtFabricante.getText() + "\nRecomendação: "
-						+ txtRecomendacao.getText() + "\nValidade: " + txtValidade.getText() + "\nTipo: " + txtTipo.getText()
+				textArea.setText("   Dados   " + "\nNome: " + txtNome.getText() + "\nFabricante: "
+						+ txtFabricante.getText() + "\nRecomendação: " + txtRecomendacao.getText()
+						+ "\nValidade: " + txtValidade.getText() + "\nTipo: " + txtTipo.getText()
 						+ "\nPosologia: " + txtPosologia.getText() + "\nRegistro: " + txtRegistro.getText());
 
 			}
@@ -188,7 +190,7 @@ public class CadastrarMedicamento extends JFrame {
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnCadastrar.setBounds(60, 238, 150, 20);
 		contentPane.add(btnCadastrar);
-		
+
 		JButton btnNewButton_1 = new JButton("< Voltar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
