@@ -200,21 +200,6 @@ public class Console {
 								estados = complementar.menuAjuda(estados);
 							}
 
-						default:
-
-							/*
-							 * System.out.println("Deseja realizar alguma outra operacao?");
-							 * if (recomecar.equalsIgnoreCase("nao")) {
-							 * estados = 100;
-							 * }
-							 * else if (recomecar.equalsIgnoreCase("sim")) {
-							 * estados = 0;
-							 * }
-							 * else {
-							 * System.out.println("Operacao invalida! Saindo por segurança.");
-							 * estados = 100;
-							 * }
-							 */
 
 						}// Saindo do Switch principal
 					}// Saindo do if de estados = 1
