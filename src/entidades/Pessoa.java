@@ -1,5 +1,5 @@
 package entidades;
-
+//Super classe de balconista,cliente e caixa
 public class Pessoa extends Administrativo {
 
 	protected String rg;
@@ -9,7 +9,7 @@ public class Pessoa extends Administrativo {
 	protected String sobrenome;
 	protected String endereco;
 	protected String telefone;
-	protected static double confirmacaoPagamento;// Polimorfismo
+	private static double confirmacaoPagamento;// Polimorfismo
 	protected double salario;// Classe Abstrata
 
 	public Pessoa() {
@@ -76,7 +76,7 @@ public class Pessoa extends Administrativo {
 	}
 
 	public double confirmacaoPagamento() {
-		if (this.confirmacaoPagamento == 1) {
+		if (this.getConfirmacaoPagamento() == 1) {
 			return 1; // Confirma que o pagamento foi aceito.
 		}
 		else {
@@ -143,6 +143,14 @@ public class Pessoa extends Administrativo {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public static double getConfirmacaoPagamento() {
+		return confirmacaoPagamento;
+	}
+
+	public static void setConfirmacaoPagamento(double confirmacaoPagamento) {
+		Pessoa.confirmacaoPagamento = confirmacaoPagamento;
 	}
 
 }

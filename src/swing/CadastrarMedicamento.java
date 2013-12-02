@@ -1,6 +1,5 @@
 package swing;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -25,8 +24,6 @@ public class CadastrarMedicamento extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtNome;
 	private JTextField txtFabricante;
-	private JTextField txtasasasasas;
-	private JTextField txtasasas;
 	private JTextField txtRecomendacao;
 	private JTextField txtValidade;
 	private JTextField txtTipo;
@@ -176,8 +173,10 @@ public class CadastrarMedicamento extends JFrame {
 			private void cadastrar() {
 
 				label.setVisible(true);
-				label.setText(txtNome.getText() + "foi cadastrado com sucesso!");
-
+				label.setText(txtNome.getText() + " foi cadastrado com sucesso!");
+				
+				//Para não extrapolar o label
+				
 				textArea.setVisible(true);
 				scrollPane.setVisible(true);
 				textArea.setText("   Dados   " + "\nNome: " + txtNome.getText() + "\nFabricante: " + txtFabricante.getText() + "\nRecomendação: "

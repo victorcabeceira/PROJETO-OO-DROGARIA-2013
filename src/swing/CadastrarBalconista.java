@@ -1,6 +1,5 @@
 package swing;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -231,7 +230,7 @@ public class CadastrarBalconista extends JFrame {
 			private void cadastrar() {
 
 				label.setVisible(true);
-				label.setText(txtNome.getText() + "foi cadastrado com sucesso!");
+				label.setText(txtNome.getText() + " foi cadastrado com sucesso!");
 
 				textArea.setVisible(true);
 				scrollPane.setVisible(true);

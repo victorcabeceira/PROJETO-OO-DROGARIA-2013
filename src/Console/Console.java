@@ -1,12 +1,19 @@
-package entidades;
+package Console;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import entidades.Balconista;
+import entidades.Caixa;
+import entidades.Cliente;
 import entidades.Complementar;
+import entidades.Medicamento;
 
-public class Apresentacao {
+public class Console {
 
-	public Apresentacao() {
+	private static Scanner scanner;
+
+	public Console() {
 
 	}
 
@@ -14,8 +21,10 @@ public class Apresentacao {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+		scanner = new Scanner(System.in);
 
+		//Atributos
+		
 		ArrayList<Balconista> listaDeBalconistas = new ArrayList<Balconista>();
 		ArrayList<Caixa> listaDeCaixas = new ArrayList<Caixa>();
 		ArrayList<Cliente> listaDeClientes = new ArrayList<Cliente>();

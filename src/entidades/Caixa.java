@@ -67,7 +67,7 @@ public class Caixa extends Pessoa {
 
 	// Verifica a confirmação de pagamento na Caixa (POLIMORFISMO)
 	public double confirmacaoPagamento() {
-		if (this.confirmacaoPagamento == 1) {
+		if (this.getConfirmacaoPagamento() == 1) {
 			return 1; // Confirma que o pagamento foi aceito.
 		}
 		else {

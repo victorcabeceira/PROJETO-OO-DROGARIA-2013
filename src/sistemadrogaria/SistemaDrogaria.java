@@ -1,5 +1,7 @@
 package sistemadrogaria;
 
+//Classe de teste de relacionamentos, contendo todos os utilizados no sistema
+
 import java.text.DecimalFormat;
 
 import entidades.Balconista;
