@@ -100,7 +100,7 @@ public class Cliente extends Pessoa implements Recomendavel {
 
 		listaDeClientes.add(cliente);
 
-		System.out.println("Cliente cadastrado com sucesso!");
+		System.out.println("O(A) Cliente " + cliente.getNome() + " foi cadastrado(a) com sucesso!");
 	}
 
 	public void listarClientes(ArrayList<Cliente> listaDeClientes) {
@@ -118,8 +118,8 @@ public class Cliente extends Pessoa implements Recomendavel {
 				System.out.println("\nRG: " + t.getRg().substring(0, 2) + "-"
 						+ t.getRg().substring(2, t.getRg().length()));
 
-				System.out.println("Cpf: " + t.getDigitoCpf() + "-" + t.getCpf().substring(0, 3) + "."
-						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9));
+				System.out.println("Cpf: " + t.getCpf().substring(0, 3) + "."
+						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9) + "-"  + t.getDigitoCpf());
 
 				System.out.println("\nTelefone: (" + t.getTelefone().substring(0, 2) + ") "
 						+ t.getTelefone().substring(2, 6) + "-" + t.getTelefone().substring(6, 10));

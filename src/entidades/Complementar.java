@@ -27,7 +27,7 @@ public class Complementar {
 
 	public int ConfirmacaoGeral2(int estados) {
 		System.out.println("Deseja realmente sair?" + "\n(0) - Não" + "\n(1) - Sim");
-		confirmacao = scanner.nextInt();
+		int confirmacao = this.readInt();
 		if (confirmacao == 1) {
 			estados = 100;// Sai definitivamente
 
@@ -44,7 +44,7 @@ public class Complementar {
 	public int ConfirmacaoBalconista(int estados) {
 		System.out.println("Deseja realmente sair do menu de cadastro de Balconista?" + "\n(0) - Não"
 				+ "\n(1) - Sim");
-		confirmacaoSaidaBalconista = scanner.nextInt();
+		int confirmacaoSaidaBalconista = this.readInt();
 		if (confirmacaoSaidaBalconista == 1) {
 			estados = 0;
 			System.out.println("Saindo do setor de cadastro de Balconista.");
@@ -57,7 +57,7 @@ public class Complementar {
 
 	public int ConfirmacaoCaixa(int estados) {
 		System.out.println("Deseja realmente sair do menu de cadastro de Caixa?" + "\n(0) - Não" + "\n(1) - Sim");
-		confirmacaoSaidaCaixa = scanner.nextInt();
+		int confirmacaoSaidaCaixa = this.readInt();
 		if (confirmacaoSaidaCaixa == 1) {
 			estados = 0;
 			System.out.println("Saindo do setor de cadastro de Caixa.");
@@ -71,7 +71,7 @@ public class Complementar {
 	public int ConfirmacaoCliente(int estados) {
 		System.out
 				.println("Deseja realmente sair do menu de cadastro de Cliente?" + "\n(0) - Não" + "\n(1) - Sim");
-		confirmacaoSaidaCliente = scanner.nextInt();
+		int confirmacaoSaidaCliente = this.readInt();
 		if (confirmacaoSaidaCliente == 1) {
 			estados = 0;
 			System.out.println("Saindo do setor de cadastro de Cliente.");
@@ -85,7 +85,7 @@ public class Complementar {
 	public int ConfirmacaoMedicamento(int estados) {
 		System.out.println("Deseja realmente sair do menu de cadastro de Medicamento?" + "\n(0) - Não"
 				+ "\n(1) - Sim");
-		confirmacaoSaidaMedicamento = scanner.nextInt();
+		int confirmacaoSaidaMedicamento = this.readInt();
 		if (confirmacaoSaidaMedicamento == 1) {
 			estados = 0;
 			System.out.println("Saindo do setor de cadastro de Medicamento.");
@@ -109,7 +109,7 @@ public class Complementar {
 		int i = 0;
 		do {
 			try {
-				i = Integer.parseInt(readString()); // Atribuição do termo digito ao Inteiro pedido
+				i = Integer.parseInt(readString()); // Atribuição do termo digitado ao Inteiro pedido
 				erro = false;
 			} catch (NumberFormatException t) {
 				System.out.println("Você inseriu algo diferente de um número. Digite um número inteiro: ");

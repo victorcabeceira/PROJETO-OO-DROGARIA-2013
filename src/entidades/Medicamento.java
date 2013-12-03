@@ -69,7 +69,7 @@ public class Medicamento extends Produto {
 
 		listaDeMedicamentos.add(medicamento);
 
-		System.out.println("Medicamento cadastrado com sucesso!");
+		System.out.println("O Medicamento " + medicamento.getNome() + " foi cadastrado com sucesso!");
 	}
 
 	public void listarMedicamentos(ArrayList<Medicamento> listaDeMedicamentos) {

@@ -174,6 +174,8 @@ public class Balconista extends Pessoa {
 				fatorComissaoBalconista, horasTrabalhadas);
 
 		listaDeBalconistas.add(balconista);
+		
+		System.out.println("O(A) balconista " + balconista.getNome() + " foi cadastrado(a) com sucesso!");
 	}
 
 	public void listarBalconistas(ArrayList<Balconista> listaDeBalconistas) {
@@ -191,8 +193,8 @@ public class Balconista extends Pessoa {
 				System.out.println("\nRG: " + t.getRg().substring(0, 2) + "-"
 						+ t.getRg().substring(2, t.getRg().length()));
 
-				System.out.println("Cpf: " + t.getDigitoCpf() + "-" + t.getCpf().substring(0, 3) + "."
-						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9));
+				System.out.println("Cpf: " + t.getCpf().substring(0, 3) + "."
+						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9) + "-"  + t.getDigitoCpf());
 
 				System.out.println("\nTelefone: (" + t.getTelefone().substring(0, 2) + ") "
 						+ t.getTelefone().substring(2, 6) + "-" + t.getTelefone().substring(6, 10));
@@ -206,9 +208,9 @@ public class Balconista extends Pessoa {
 
 				System.out.println("\nNúmero de horas trabalhadas semanalmente: " + t.getHoras() + "horas");
 
-				System.out.println("\nFator de comissao: " + t.getFatorComissao() + "%");
+				System.out.println("\nFator de comissao: " + t.getFatorComissao() + " %");
 
-				System.out.println("\nSalário: " + t.calcularSalario() + "R$\n");
+				System.out.println("\nSalário: R$ " + t.calcularSalario() );
 			}
 			System.out.println("Fim da lista de cadastro de Balconistas.\n");
 		}

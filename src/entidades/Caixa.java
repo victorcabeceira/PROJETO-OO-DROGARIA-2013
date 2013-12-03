@@ -123,7 +123,7 @@ public class Caixa extends Pessoa {
 
 		listaDeCaixas.add(caixa);
 
-		System.out.println("Caixa cadastrado com sucesso!");
+		System.out.println("O(A) caixa " + caixa.getNome() + " foi cadastrado(a) com sucesso!");
 
 	}
 
@@ -143,15 +143,15 @@ public class Caixa extends Pessoa {
 				System.out.println("\nRG: " + t.getRg().substring(0, 2) + "-"
 						+ t.getRg().substring(2, t.getRg().length()));
 
-				System.out.println("Cpf: " + t.getDigitoCpf() + "-" + t.getCpf().substring(0, 3) + "."
-						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9));
+				System.out.println("Cpf: " + t.getCpf().substring(0, 3) + "."
+						+ t.getCpf().substring(3, 6) + "." + t.getCpf().substring(6, 9) + "-"  + t.getDigitoCpf());
 
 				System.out.println("\nTelefone: (" + t.getTelefone().substring(0, 2) + ") "
 						+ t.getTelefone().substring(2, 6) + "-" + t.getTelefone().substring(6, 10));
 
 				System.out.println("\nCódigo do Caixa: " + t.getCodigo());
 
-				System.out.println("\nSalário: " + t.calcularSalario());
+				System.out.println("\nSalário: R$ " + t.calcularSalario());
 			}
 			System.out.println("Fim da lista de cadastro de Caixas.\n");
 		}
