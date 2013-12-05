@@ -69,7 +69,7 @@ public class Balconista extends Pessoa {
 		}
 	}
 
-	public void verificarMedicamento(Medicamento medicamento) {
+	public void verificarMedicamento(Medicamento[] medicamento) {
 		int tamanhoAntigo = this.medicamentos.length;
 
 		Medicamento[] novosMedicamentos = new Medicamento[tamanhoAntigo + 1];
@@ -78,7 +78,7 @@ public class Balconista extends Pessoa {
 
 		}
 
-		novosMedicamentos[novosMedicamentos.length - 1] = medicamento;
+		novosMedicamentos[novosMedicamentos.length - 1] = medicamento[medicamentos.length];
 		this.setMedicamentos(novosMedicamentos);
 
 	}
@@ -402,5 +402,7 @@ public class Balconista extends Pessoa {
 	public void setGetCpf(Object getCpf) {
 		this.getCpf = getCpf;
 	}
+
+	
 
 }

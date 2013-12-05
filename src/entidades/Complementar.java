@@ -20,6 +20,20 @@ public class Complementar {
 		this.confirmacao = confirmacaoTeste;
 	}
 
+	public Complementar(int confirmacaoTeste, int confirmacaoSaidaBalconista, int confirmacaoSaidaCaixa,
+			int confirmacaoSaidaCliente, int confirmacaoSaidaMedicamento, int confirmacaoSaidaAjuda,
+			int operacaoMenu) {
+			
+		this.confirmacao = confirmacaoTeste;
+		this.confirmacaoSaidaBalconista = confirmacaoSaidaBalconista;
+		this.confirmacaoSaidaCaixa = confirmacaoSaidaCaixa;
+		this.confirmacaoSaidaCliente = confirmacaoSaidaCliente;
+		this.confirmacaoSaidaMedicamento = confirmacaoSaidaMedicamento;
+		this.confirmacaoSaidaAjuda = confirmacaoSaidaAjuda;
+		this.operacaoMenu = operacaoMenu;
+		
+	}	
+
 	public void ConfirmacaoGeral() {
 		System.out.println("Deseja realmente sair do programa?" + "\n(0) - Não" + "\n(1) - Sim");
 
@@ -209,6 +223,78 @@ public class Complementar {
 
 	public void setconfirmacao(int confirmacao) {
 		this.confirmacao = confirmacao;
+	}
+
+	public int getConfirmacao() {
+		return confirmacao;
+	}
+
+	public void setConfirmacao(int confirmacao) {
+		this.confirmacao = confirmacao;
+	}
+
+	public int getConfirmacaoSaidaBalconista() {
+		return confirmacaoSaidaBalconista;
+	}
+
+	public void setConfirmacaoSaidaBalconista(int confirmacaoSaidaBalconista) {
+		this.confirmacaoSaidaBalconista = confirmacaoSaidaBalconista;
+	}
+
+	public int getConfirmacaoSaidaCaixa() {
+		return confirmacaoSaidaCaixa;
+	}
+
+	public void setConfirmacaoSaidaCaixa(int confirmacaoSaidaCaixa) {
+		this.confirmacaoSaidaCaixa = confirmacaoSaidaCaixa;
+	}
+
+	public int getConfirmacaoSaidaCliente() {
+		return confirmacaoSaidaCliente;
+	}
+
+	public void setConfirmacaoSaidaCliente(int confirmacaoSaidaCliente) {
+		this.confirmacaoSaidaCliente = confirmacaoSaidaCliente;
+	}
+
+	public int getConfirmacaoSaidaMedicamento() {
+		return confirmacaoSaidaMedicamento;
+	}
+
+	public void setConfirmacaoSaidaMedicamento(int confirmacaoSaidaMedicamento) {
+		this.confirmacaoSaidaMedicamento = confirmacaoSaidaMedicamento;
+	}
+
+	public int getConfirmacaoSaidaAjuda() {
+		return confirmacaoSaidaAjuda;
+	}
+
+	public void setConfirmacaoSaidaAjuda(int confirmacaoSaidaAjuda) {
+		this.confirmacaoSaidaAjuda = confirmacaoSaidaAjuda;
+	}
+
+	public int getOperacaoMenu() {
+		return operacaoMenu;
+	}
+
+	public void setOperacaoMenu(int operacaoMenu) {
+		this.operacaoMenu = operacaoMenu;
+	}
+
+	public static String getString() {
+		return string;
+	}
+
+	public static void setString(String string) {
+		Complementar.string = string;
+	}
+
+	public Scanner getScannerR() {
+		return scannerR;
+	}
+
+	public void setScannerR(Scanner scannerR) {
+		this.scannerR = scannerR;
 	}
 
 }
